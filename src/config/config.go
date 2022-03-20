@@ -5,14 +5,14 @@ import (
 	"os"
 )
 
-type config struct {
+type Config struct {
 	Host      string
 	HTTPS     bool
 	Port      int
 	StripeKey string
 }
 
-func (c *config) GetDomain() string {
+func (c *Config) GetDomain() string {
 
 	protocol := "http"
 
@@ -23,8 +23,8 @@ func (c *config) GetDomain() string {
 	return fmt.Sprintf("%s://%s:%d", protocol, c.Host, c.Port)
 }
 
-func GetConfig() *config {
-	return &config{
+func GetConfig() *Config {
+	return &Config{
 		Port:      3000,
 		HTTPS:     false,
 		Host:      "localhost",

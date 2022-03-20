@@ -15,9 +15,9 @@ import (
 func main() {
 	godotenv.Load(".env")
 
-	config := config.GetConfig()
+	serverConfig := config.GetConfig()
 
-	stripe.Key = config.StripeKey
+	stripe.Key = serverConfig.StripeKey
 
 	engine := html.New("./src/views", ".html").Reload(true)
 
@@ -26,10 +26,13 @@ func main() {
 		ViewsLayout: "layouts/main",
 	})
 
+	config.NewStore()
+
 	app.Get("/", controllers.Index)
 	app.Get("/cancel", controllers.Cancel)
 	app.Get("/success", controllers.Success)
 	app.Post("/checkout", controllers.Checkout)
+	app.Get("/error", controllers.Error)
 
-	log.Fatal(app.Listen(fmt.Sprintf(":%d", config.Port)))
+	log.Fatal(app.Listen(fmt.Sprintf(":%d", serverConfig.Port)))
 }

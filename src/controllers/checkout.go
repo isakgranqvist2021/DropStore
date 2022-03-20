@@ -1,8 +1,6 @@
 package controllers
 
 import (
-	"log"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/isakgranqvist2021/dropstore/src/config"
 	"github.com/isakgranqvist2021/dropstore/src/models"
@@ -10,7 +8,7 @@ import (
 	"github.com/stripe/stripe-go/v72/checkout/session"
 )
 
-func Checkout(ctx *fiber.Ctx) error {
+func Checkout(c *fiber.Ctx) error {
 	domain := config.GetConfig().GetDomain()
 
 	paymentMode := string(stripe.CheckoutSessionModePayment)
@@ -31,9 +29,22 @@ func Checkout(ctx *fiber.Ctx) error {
 	s, err := session.New(params)
 
 	if err != nil {
-		log.Printf("session.New: %v", err)
-		ctx.Redirect("/")
+		c.Redirect("/error")
 	}
 
-	return ctx.Redirect(s.URL)
+	sess, err := config.GetStore().Get(c)
+
+	if err != nil {
+		c.Redirect("/error")
+	}
+
+	sess.Set("STRIPE_SESSION", s.ID)
+
+	err = sess.Save()
+
+	if err != nil {
+		c.Redirect("/error")
+	}
+
+	return c.Redirect(s.URL)
 }
