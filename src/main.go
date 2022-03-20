@@ -12,6 +12,8 @@ import (
 	"github.com/stripe/stripe-go/v72"
 )
 
+const BASEDIR = "./src"
+
 func main() {
 	godotenv.Load(".env")
 
@@ -19,12 +21,14 @@ func main() {
 
 	stripe.Key = serverConfig.StripeKey
 
-	engine := html.New("./src/views", ".html").Reload(true)
+	engine := html.New(BASEDIR+"/views", ".html").Reload(true)
 
 	app := fiber.New(fiber.Config{
 		Views:       engine,
 		ViewsLayout: "layouts/main",
 	})
+
+	app.Static("/public", BASEDIR+"/public")
 
 	config.NewStore()
 
