@@ -3,5 +3,5 @@ package controllers
 import "github.com/gofiber/fiber/v2"
 
 func Cancel(c *fiber.Ctx) error {
-	return c.SendString("Err!")
+	return c.Render("pages/cancel", nil)
 }
