@@ -2,34 +2,40 @@
 	{{range .Products}}
 	<div class="product">
 		<img
+			alt="Image"
 			src="https://images.pexels.com/photos/19090/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
 		/>
+
 		<div class="product_body">
-			<h2>Amazing Shoes</h2>
+			<div class="product-price">
+				<h2>Amazing Shoes</h2>
+				<h4>200 SEK</h4>
+			</div>
+
 			<p>
 				Lorem Ipsum is simply dummy text of the printing and typesetting
 				industry. Lorem Ipsum is simply dummy text of the printing and
 				typesetting industry.Lorem Ipsum is simply dummy text of the printing
 				and typesetting industry
 			</p>
-			<h4>200 SEK</h4>
-		</div>
-		<ul>
-			<li>Quality</li>
-			<li>Recommended By Pros</li>
-			<li>Cheap</li>
-			<li>Very comfortable</li>
-		</ul>
-		<form method="POST" action="/add-to-cart">
-			<input type="hidden" name="ID" value="{{ .ID }}" />
 
-			<select name="quantity">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-			</select>
-			<button>Buy Now</button>
-		</form>
+			<ul>
+				<li>Quality</li>
+				<li>Recommended By Pros</li>
+				<li>Cheap</li>
+				<li>Very comfortable</li>
+			</ul>
+			<form method="POST" action="/add-to-cart">
+				<input type="hidden" name="ID" value="{{ .ID }}" />
+
+				<select name="quantity">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+				<button>Buy Now</button>
+			</form>
+		</div>
 	</div>
 	{{end}}
 </div>

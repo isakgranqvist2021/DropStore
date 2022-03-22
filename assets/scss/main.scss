@@ -1,11 +1,17 @@
+@import './product';
+
 * {
-	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
 	margin: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+button {
 	font-family: 'Open Sans', sans-serif;
 }
 
@@ -19,9 +25,9 @@ main,
 
 @media (min-width: 1200px) {
 	.products-grid {
+		gap: 2rem;
 		display: grid;
+		padding: 2rem;
 		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-		gap: 1rem;
-		padding: 1rem;
 	}
 }
