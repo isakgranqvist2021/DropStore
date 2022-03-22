@@ -3,8 +3,12 @@ package models
 import "github.com/stripe/stripe-go/v72"
 
 type Product struct {
-	Amount int64
-	Name   string
+	ID          int64
+	Amount      int64
+	Description string
+	Image       Image
+	Features    []string
+	Name        string
 }
 
 func (product *Product) ConvertToStripeProduct() *stripe.CheckoutSessionLineItemParams {

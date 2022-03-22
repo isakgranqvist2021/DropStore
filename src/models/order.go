@@ -2,6 +2,6 @@ package models
 
 type Order struct {
 	Currency string
-	Product  Product
+	Products []Product
 	Quantity int
 }

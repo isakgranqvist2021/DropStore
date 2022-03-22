@@ -4,6 +4,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/isakgranqvist2021/dropstore/src/config"
 	"github.com/isakgranqvist2021/dropstore/src/models"
+
 	"github.com/stripe/stripe-go/v72"
 	"github.com/stripe/stripe-go/v72/checkout/session"
 )
