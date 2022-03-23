@@ -37,7 +37,7 @@ func main() {
 	app.Get("/cancel", controllers.Cancel)
 	app.Get("/success", controllers.Success)
 	app.Post("/checkout", controllers.Checkout)
-	app.Post("/add-to-cart", controllers.AddToCart)
+	app.Post("/add-to-cart/:ID", controllers.AddToCart)
 
 	log.Fatal(app.Listen(fmt.Sprintf(":%d", serverConfig.Port)))
 }

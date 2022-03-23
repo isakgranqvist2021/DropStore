@@ -1,3 +1,5 @@
+<div class="hero-section"></div>
+
 <div class="products-grid">
 	{{range .Products}}
 	<div class="product">
@@ -25,9 +27,7 @@
 				<li>Cheap</li>
 				<li>Very comfortable</li>
 			</ul>
-			<form method="POST" action="/add-to-cart">
-				<input type="hidden" name="ID" value="{{ .ID }}" />
-
+			<form method="POST" action="/add-to-cart/{{ .ID }}">
 				<select name="quantity">
 					<option value="1">1</option>
 					<option value="2">2</option>
