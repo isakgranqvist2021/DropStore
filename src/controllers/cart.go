@@ -9,9 +9,9 @@ import (
 )
 
 func AddToCart(c *fiber.Ctx) error {
-	var body models.Order
+	var newItem models.CartItem
 
-	if err := c.BodyParser(&body); err != nil {
+	if err := c.BodyParser(&newItem); err != nil {
 		return c.Redirect("/error")
 	}
 
@@ -21,10 +21,7 @@ func AddToCart(c *fiber.Ctx) error {
 		return c.Redirect("/error")
 	}
 
-	newItem := map[string]int{
-		"ID":       int(productId),
-		"Quantity": body.Quantity,
-	}
+	newItem.ID = int(productId)
 
 	sess, err := config.GetStore().Get(c)
 
@@ -39,9 +36,9 @@ func AddToCart(c *fiber.Ctx) error {
 	}
 
 	if cartInventory != nil {
-		cartInventory = append(cartInventory.([]map[string]int), newItem)
+		cartInventory = append(cartInventory.([]models.CartItem), newItem)
 	} else {
-		cartInventory = []map[string]int{newItem}
+		cartInventory = []models.CartItem{newItem}
 	}
 
 	sess.Set("CART_INVENTORY", cartInventory)
