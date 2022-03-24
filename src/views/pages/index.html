@@ -1,41 +1,42 @@
 <div class="hero-section"></div>
 
 <div class="products-grid">
-	{{range .Products}}
+	{{ range .Products }}
 	<div class="product">
 		<img
-			alt="Image"
+			alt="{{ .Name }} product image"
 			src="https://images.pexels.com/photos/19090/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
 		/>
 
-		<div class="product_body">
-			<div class="product-price">
-				<h2>Amazing Shoes</h2>
-				<h4>200 SEK</h4>
-			</div>
+		<div class="product-header">
+			<h2 class="product-title">Amazing Shoes</h2>
+			<h4 class="product-price">200 SEK</h4>
+		</div>
 
-			<p>
+		<div class="product_body">
+			<p class="product-description">
 				Lorem Ipsum is simply dummy text of the printing and typesetting
 				industry. Lorem Ipsum is simply dummy text of the printing and
 				typesetting industry.Lorem Ipsum is simply dummy text of the printing
 				and typesetting industry
 			</p>
 
-			<ul>
+			<ul class="product-features">
 				<li>Quality</li>
 				<li>Recommended By Pros</li>
 				<li>Cheap</li>
 				<li>Very comfortable</li>
 			</ul>
-			<form method="POST" action="/add-to-cart/{{ .ID }}">
-				<select name="quantity">
-					<option value="1">1</option>
-					<option value="2">2</option>
-					<option value="3">3</option>
-				</select>
-				<button>Buy Now</button>
-			</form>
 		</div>
+
+		<form method="POST" action="/add-to-cart/{{ .ID }}">
+			<select name="quantity">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+			</select>
+			<button>Add to cart</button>
+		</form>
 	</div>
-	{{end}}
+	{{ end }}
 </div>
