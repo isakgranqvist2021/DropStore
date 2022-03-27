@@ -8,6 +8,7 @@ import (
 	"github.com/isakgranqvist2021/dropstore/src/models"
 )
 
+// Find products from raw without qty
 func GetProducts() ([]models.Product, error) {
 	var products []models.Product
 
@@ -24,6 +25,7 @@ func GetProducts() ([]models.Product, error) {
 	return products, nil
 }
 
+// Find product from raw without qty
 func GetProduct(ID int) (*models.Product, error) {
 	products, err := GetProducts()
 

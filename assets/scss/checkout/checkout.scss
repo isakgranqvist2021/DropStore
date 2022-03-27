@@ -1,63 +1,132 @@
 @import '../utils/vars';
+@import '../partials/button';
 
-h1 {
-	margin-bottom: 1rem;
-}
+.checkout {
+	display: grid;
+	min-height: 100vh;
+	grid-template-columns: 2fr 1fr;
 
-section {
-	ul {
-		list-style: none;
+	@media (max-width: 1200px) {
+		grid-template-columns: 1.5fr 1fr;
+	}
 
-		li {
-			display: flex;
-			padding: 1rem 0;
-			justify-content: space-between;
+	@media (max-width: 1000px) {
+		display: flex;
+		flex-direction: column;
+	}
 
-			a {
-				text-decoration: none;
-				color: $color;
-			}
+	h1 {
+		margin-bottom: 1rem;
+	}
 
-			.product-details {
-				gap: 1rem;
+	.inventory {
+		width: 100%;
+		padding: 2rem;
+
+		ul {
+			list-style: none;
+
+			li {
 				display: flex;
-				align-items: center;
+				padding: 1rem 0;
+				justify-content: space-between;
 
-				h4 {
-					margin-top: 6px;
-					font-weight: 400;
-					font-family: 'Red Hat Mono', monospace;
-					font-size: 14px;
+				.product-quantity {
+					gap: 1rem;
+					display: flex;
+					align-items: center;
+
+					a {
+						@include button;
+
+						padding: 0;
+						display: flex;
+						border-radius: 50%;
+						align-items: center;
+						justify-content: center;
+					}
 				}
 
-				img {
-					width: 40px;
-					height: 40px;
-					border-radius: 50%;
+				a {
+					text-decoration: none;
+					color: $color;
 				}
-			}
 
-			&:not(:last-of-type) {
-				border-bottom: 1px solid rgb(235, 235, 235);
+				.product-details {
+					gap: 1rem;
+					display: flex;
+					align-items: center;
+
+					h4 {
+						margin-top: 6px;
+						font-weight: 400;
+						font-family: 'Red Hat Mono', monospace;
+						font-size: 14px;
+					}
+
+					img {
+						width: 40px;
+						height: 40px;
+						border-radius: 50%;
+					}
+				}
+
+				&:not(:last-of-type) {
+					border-bottom: 1px solid rgb(235, 235, 235);
+				}
 			}
 		}
 	}
-}
 
-#pay {
-	display: table;
-	margin: 1rem 0 0 auto;
+	form {
+		width: 100%;
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
 
-	cursor: pointer;
-	color: #f0f0f0;
-	text-align: center;
-	text-decoration: none;
-	padding: 0.5rem 1rem;
-	border-radius: 0.5rem;
-	border-color: transparent;
-	background-color: rgb(23, 95, 228);
+		@media (min-width: 1000px) {
+			border-right: 1px solid rgb(235, 235, 235);
+		}
 
-	&:hover {
-		background-color: rgb(33, 102, 231);
+		@media (min-width: 560px) {
+			gap: 1rem;
+		}
+
+		input,
+		select {
+			width: 100%;
+			padding: 0.5rem;
+			border-radius: 0.5rem;
+			border: 1px solid rgb(219, 219, 219);
+		}
+
+		section {
+			width: 100%;
+
+			@media (min-width: 560px) {
+				gap: 2rem;
+				display: flex;
+
+				div {
+					margin-bottom: 0 !important;
+				}
+			}
+
+			div {
+				width: 100%;
+				display: flex;
+				margin-bottom: 1rem;
+				flex-direction: column;
+
+				label {
+					margin-bottom: 10px;
+				}
+			}
+		}
+
+		button {
+			@include button;
+			margin-left: auto;
+		}
 	}
 }

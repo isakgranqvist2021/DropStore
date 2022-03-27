@@ -1,4 +1,5 @@
 @import '../partials/form';
+@import '../partials/button';
 
 .view-product {
 	@media (min-width: 1200px) {
@@ -22,20 +23,25 @@
 		}
 
 		a {
+			@include button;
+
 			width: 40px;
 			height: 40px;
 			padding: 10px;
 			display: none;
 			border-radius: 50%;
-			border-color: transparent;
-			background-color: rgb(23, 95, 228);
-
-			&:hover {
-				background-color: rgb(33, 102, 231);
-			}
+			text-decoration: none;
 
 			@media (min-width: 1200px) {
-				display: block;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				span {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
 			}
 		}
 

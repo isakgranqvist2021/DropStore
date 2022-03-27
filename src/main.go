@@ -41,6 +41,7 @@ func main() {
 	app.Get("/product/:ID", controllers.ViewProduct)
 	app.Get("/success", controllers.CompletedPurchase)
 	app.Post("/add-to-cart/:ID", controllers.AddToCart)
+	app.Get("/change-quantity/:ACTION/:ID", controllers.ChangeQuantity)
 
 	log.Fatal(app.Listen(fmt.Sprintf(":%d", serverConfig.Port)))
 }

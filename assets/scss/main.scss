@@ -1,4 +1,4 @@
-@import './partials/cart';
+@import './partials/sidebar';
 
 * {
 	margin: 0;
@@ -8,7 +8,6 @@
 
 body {
 	margin: 0;
-	padding: 5rem;
 	font-family: 'Open Sans', sans-serif;
 
 	@media (max-width: 970px) {

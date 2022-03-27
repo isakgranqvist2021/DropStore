@@ -43,7 +43,7 @@ func alreadyExists(productId int, returnValue *[]models.Product) *int {
 	return nil
 }
 
-func findProduct(productId int, products *[]models.Product) *models.Product {
+func FindProduct(productId int, products *[]models.Product) *models.Product {
 	for _, v := range *products {
 		if v.ID == productId {
 			return &v
@@ -63,7 +63,7 @@ func JoinCart(cart []models.CartItem) []models.Product {
 	}
 
 	for _, v := range cart {
-		product := findProduct(v.ID, &products)
+		product := FindProduct(v.ID, &products)
 
 		existingProductId := alreadyExists(v.ID, &returnValue)
 

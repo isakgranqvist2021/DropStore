@@ -1,25 +1,76 @@
 <link rel="stylesheet" href="/public/css/checkout.min.css" />
 
-<section>
-	<h1>Checkout</h1>
-	<ul>
-		{{ range .Products }}
-		<li>
-			<a href="/product/{{ .ID }}">
-				<div class="product-details">
-					<img src="{{ .Image.Src }}" alt="" />
-					<div>
-						<h3>{{ .Name }}</h3>
-						<h4>{{ .Amount }} SEK</h4>
-					</div>
-				</div>
-			</a>
-			<span>{{ .Quantity }}</span>
-		</li>
+<section class="checkout">
+	<form>
+		<h1>Checkout</h1>
+		<section>
+			<div>
+				<label for="">First name</label>
+				<input type="text" />
+			</div>
+			<div>
+				<label for="">Last name</label>
+				<input type="text" />
+			</div>
+		</section>
+		<section>
+			<div>
+				<label for="">Email</label>
+				<input type="text" />
+			</div>
+			<div>
+				<label for="">Phone</label>
+				<input type="text" />
+			</div>
+		</section>
+		<section>
+			<div>
+				<label for="">Address</label>
+				<input type="text" />
+			</div>
+			<div>
+				<label for="">Postal Code</label>
+				<input type="text" />
+			</div>
+		</section>
+		<section>
+			<div>
+				<label for="">Country</label>
+				<select name="" id=""></select>
+			</div>
+			<div>
+				<label for="">State/Region</label>
+				<select name="" id=""></select>
+			</div>
+		</section>
+		{{ if .Products }}
+		<button>Continue to payment</button>
 		{{ end }}
-	</ul>
-
-	{{ if .Products }}
-	<a href="/pay" id="pay">Continue to payment</a>
-	{{ end }}
+	</form>
+	<div class="inventory">
+		<ul>
+			{{ range .Products }}
+			<li>
+				<a href="/product/{{ .ID }}">
+					<div class="product-details">
+						<img src="{{ .Image.Src }}" alt="" />
+						<div>
+							<h3>{{ .Name }}</h3>
+							<h4>{{ .Amount }} SEK</h4>
+						</div>
+					</div>
+				</a>
+				<div class="product-quantity">
+					<a href="/change-quantity/increment/{{ .ID }}">
+						<span class="material-icons-outlined">add</span>
+					</a>
+					<span>{{ .Quantity }}</span>
+					<a href="/change-quantity/decrement/{{ .ID }}">
+						<span class="material-icons-outlined">remove</span>
+					</a>
+				</div>
+			</li>
+			{{ end }}
+		</ul>
+	</div>
 </section>
