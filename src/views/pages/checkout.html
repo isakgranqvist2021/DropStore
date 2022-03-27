@@ -5,10 +5,15 @@
 	<ul>
 		{{ range .Products }}
 		<li>
-			<div class="product-details">
-				<img src="{{ .Image.Src }}" alt="" />
-				<a href="/product/{{ .ID }}">{{ .Name }}</a>
-			</div>
+			<a href="/product/{{ .ID }}">
+				<div class="product-details">
+					<img src="{{ .Image.Src }}" alt="" />
+					<div>
+						<h3>{{ .Name }}</h3>
+						<h4>{{ .Amount }} SEK</h4>
+					</div>
+				</div>
+			</a>
 			<span>{{ .Quantity }}</span>
 		</li>
 		{{ end }}
