@@ -1,1 +1,20 @@
-<h1>Checkout</h1>
+<link rel="stylesheet" href="/public/css/checkout.min.css" />
+
+<section>
+	<h1>Checkout</h1>
+	<ul>
+		{{ range .Products }}
+		<li>
+			<div class="product-details">
+				<img src="{{ .Image.Src }}" alt="" />
+				<a href="/product/{{ .ID }}">{{ .Name }}</a>
+			</div>
+			<span>{{ .Quantity }}</span>
+		</li>
+		{{ end }}
+	</ul>
+
+	{{ if .Products }}
+	<a href="/pay" id="pay">Continue to payment</a>
+	{{ end }}
+</section>

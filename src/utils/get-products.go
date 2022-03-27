@@ -24,7 +24,7 @@ func GetProducts() ([]models.Product, error) {
 	return products, nil
 }
 
-func GetProduct(ID int64) (*models.Product, error) {
+func GetProduct(ID int) (*models.Product, error) {
 	products, err := GetProducts()
 
 	if err != nil {

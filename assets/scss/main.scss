@@ -1,8 +1,4 @@
-@import './cart';
-@import './checkout';
-@import './hero-section';
-@import './product';
-@import './view-product';
+@import './partials/cart';
 
 * {
 	margin: 0;
@@ -32,17 +28,4 @@ html,
 body,
 main {
 	width: 100%;
-}
-
-.products-grid {
-	gap: 2rem;
-	display: flex;
-	padding: 1rem 0;
-	flex-direction: column;
-
-	@media (min-width: 470px) {
-		display: grid;
-		padding: 2rem 0;
-		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-	}
 }

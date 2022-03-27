@@ -34,7 +34,7 @@ func main() {
 	config.NewStore()
 
 	app.Get("/", controllers.Index)
-	app.Post("/pay", controllers.Pay)
+	app.Get("/pay", controllers.Pay)
 	app.Get("/error", controllers.Error)
 	app.Get("/checkout", controllers.Checkout)
 	app.Get("/cancel", controllers.CancelPurchase)

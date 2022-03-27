@@ -1,0 +1,56 @@
+@import '../utils/vars';
+
+h1 {
+	margin-bottom: 1rem;
+}
+
+section {
+	ul {
+		list-style: none;
+
+		li {
+			display: flex;
+			padding: 1rem 0;
+			justify-content: space-between;
+
+			a {
+				text-decoration: none;
+				color: $color;
+			}
+
+			.product-details {
+				gap: 1rem;
+				display: flex;
+				align-items: center;
+
+				img {
+					width: 40px;
+					height: 40px;
+					border-radius: 50%;
+				}
+			}
+
+			&:not(:last-of-type) {
+				border-bottom: 1px solid rgb(235, 235, 235);
+			}
+		}
+	}
+}
+
+#pay {
+	display: table;
+	margin: 1rem 0 0 auto;
+
+	cursor: pointer;
+	color: #f0f0f0;
+	text-align: center;
+	text-decoration: none;
+	padding: 0.5rem 1rem;
+	border-radius: 0.5rem;
+	border-color: transparent;
+	background-color: rgb(23, 95, 228);
+
+	&:hover {
+		background-color: rgb(33, 102, 231);
+	}
+}

@@ -1,0 +1,28 @@
+@import '../utils/vars';
+
+form {
+	display: flex;
+	gap: $gap-between-items;
+	justify-content: space-between;
+	padding: 0 $gap-between-items $gap-between-items;
+
+	select {
+		padding: 0.5rem;
+		border-radius: 0.5rem;
+		border: 1px solid rgb(219, 219, 219);
+	}
+
+	button {
+		flex-grow: 1;
+		cursor: pointer;
+		color: #f0f0f0;
+		padding: 0.5rem 1rem;
+		border-radius: 0.5rem;
+		border-color: transparent;
+		background-color: rgb(23, 95, 228);
+
+		&:hover {
+			background-color: rgb(33, 102, 231);
+		}
+	}
+}

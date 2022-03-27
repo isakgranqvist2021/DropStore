@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="/public/css/view-product.min.css" />
+
 <section class="view-product">
 	<img src="{{ .Product.Image.Src }}" alt="" />
 	<div class="view-product-info">
@@ -10,6 +12,7 @@
 			<h4>{{ .Product.Amount }} SEK</h4>
 		</header>
 		<p>{{ .Product.Description }}</p>
+
 		<ul>
 			{{ range .Product.Features }}
 			<li>{{ . }}</li>

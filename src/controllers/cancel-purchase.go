@@ -16,5 +16,5 @@ func CancelPurchase(c *fiber.Ctx) error {
 
 	fmt.Println(sess.Get("STRIPE_SESSION"))
 
-	return c.Render("pages/cancel-purchase", nil)
+	return c.Redirect("/checkout")
 }
