@@ -4,12 +4,11 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/isakgranqvist2021/dropstore/src/config"
 	"github.com/isakgranqvist2021/dropstore/src/models"
-
 	"github.com/stripe/stripe-go/v72"
 	"github.com/stripe/stripe-go/v72/checkout/session"
 )
 
-func Checkout(c *fiber.Ctx) error {
+func Pay(c *fiber.Ctx) error {
 	domain := config.GetConfig().GetDomain()
 
 	paymentMode := string(stripe.CheckoutSessionModePayment)
@@ -48,4 +47,9 @@ func Checkout(c *fiber.Ctx) error {
 	}
 
 	return c.Redirect(s.URL)
+}
+
+func Checkout(c *fiber.Ctx) error {
+
+	return c.Render("pages/checkout", nil)
 }

@@ -7,7 +7,7 @@ import (
 	"github.com/isakgranqvist2021/dropstore/src/config"
 )
 
-func Success(c *fiber.Ctx) error {
+func CancelPurchase(c *fiber.Ctx) error {
 	sess, err := config.GetStore().Get(c)
 
 	if err != nil {
@@ -16,5 +16,5 @@ func Success(c *fiber.Ctx) error {
 
 	fmt.Println(sess.Get("STRIPE_SESSION"))
 
-	return c.Render("pages/success", nil)
+	return c.Render("pages/cancel-purchase", nil)
 }

@@ -9,6 +9,7 @@ type Product struct {
 	Image       Image
 	Features    []string
 	Name        string
+	Stock       int64
 }
 
 func (product *Product) ConvertToStripeProduct() *stripe.CheckoutSessionLineItemParams {

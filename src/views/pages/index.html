@@ -3,31 +3,24 @@
 <div class="products-grid">
 	{{ range .Products }}
 	<div class="product">
-		<img
-			alt="{{ .Name }} product image"
-			src="https://images.pexels.com/photos/19090/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-		/>
+		<a href="/product/{{ .ID }}">
+			<img alt="{{ .Name }} product image" src="{{ .Image.Src }}" />
 
-		<div class="product-header">
-			<h2 class="product-title">Amazing Shoes</h2>
-			<h4 class="product-price">200 SEK</h4>
-		</div>
+			<div class="product-header">
+				<h2 class="product-title">{{ .Name }}</h2>
+				<h4 class="product-price">{{ .Amount }} SEK</h4>
+			</div>
 
-		<div class="product_body">
-			<p class="product-description">
-				Lorem Ipsum is simply dummy text of the printing and typesetting
-				industry. Lorem Ipsum is simply dummy text of the printing and
-				typesetting industry.Lorem Ipsum is simply dummy text of the printing
-				and typesetting industry
-			</p>
+			<div class="product-body">
+				<p class="product-description">{{ CutStr .Description }}</p>
 
-			<ul class="product-features">
-				<li>Quality</li>
-				<li>Recommended By Pros</li>
-				<li>Cheap</li>
-				<li>Very comfortable</li>
-			</ul>
-		</div>
+				<ul class="product-features">
+					{{ range .Features }}
+					<li>{{ . }}</li>
+					{{ end }}
+				</ul>
+			</div>
+		</a>
 
 		<form method="POST" action="/add-to-cart/{{ .ID }}">
 			<select name="quantity">

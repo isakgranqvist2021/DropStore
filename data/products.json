@@ -1,0 +1,62 @@
+[
+	{
+		"ID": 1,
+		"Name": "Topspin 3",
+		"Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages",
+		"Amount": 350,
+		"Stock": 4,
+		"Features": ["Wii", "Video Game", "Gaming", "Sport Games", "Tennis"],
+		"Image": {
+			"src": "/public/img/277311765_5076150342428468_7666739674731008933_n.jpg",
+			"alt": ""
+		}
+	},
+	{
+		"ID": 2,
+		"Name": "Airpods 3",
+		"Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages",
+		"Amount": 1200,
+		"Stock": 2,
+		"Features": ["Apple", "Sound", "Phone", "Quality", "Steve Jobs"],
+		"Image": {
+			"src": "/public/img/276062397_4441891062576954_1449858416366576093_n.png",
+			"alt": ""
+		}
+	},
+	{
+		"ID": 3,
+		"Name": "Iphone 6",
+		"Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages",
+		"Amount": 900,
+		"Stock": 2,
+		"Features": [
+			"Iphone 6 plus",
+			"Roseguld",
+			"Fint skick!",
+			"Batterihälsa 86%",
+			"16gb"
+		],
+		"Image": {
+			"src": "/public/img/277110345_4981884471890806_3379010192801252323_n.jpg",
+			"alt": ""
+		}
+	},
+	{
+		"ID": 3,
+		"Name": "Asus Gtx 560ti",
+		"Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages",
+		"Amount": 500,
+		"Stock": 2,
+		"Features": [
+			"Iphone 6 plus",
+			"Roseguld",
+			"Fint skick!",
+			"Batterihälsa 86%",
+			"16gb"
+		],
+		"Image": {
+			"src": "/public/img/277040822_4783561041766995_3025175041584980607_n.png",
+			"alt": ""
+		}
+	}
+]

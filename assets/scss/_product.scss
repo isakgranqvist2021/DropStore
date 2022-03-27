@@ -1,4 +1,5 @@
 $gap-between-items: 1rem;
+$color: rgb(49, 49, 49);
 
 .product {
 	width: 100%;
@@ -7,17 +8,28 @@ $gap-between-items: 1rem;
 	display: flex;
 	border-radius: 0.5rem;
 	flex-direction: column;
+	gap: $gap-between-items;
 	transition: all 150ms ease;
 	justify-content: space-between;
 	box-shadow: 0px 0px 19px 10px rgba(235, 235, 235, 1);
-	gap: $gap-between-items;
 
 	&:hover {
 		box-shadow: 2px 4px 32px 20px rgb(218, 218, 218);
 	}
 
+	a {
+		color: $color;
+		display: flex;
+		text-decoration: none;
+		flex-direction: column;
+		gap: $gap-between-items;
+		justify-content: space-between;
+	}
+
 	img {
 		width: 100%;
+		display: block;
+		object-fit: cover;
 		border-top-left-radius: 0.5rem;
 		border-top-right-radius: 0.5rem;
 	}
@@ -26,8 +38,8 @@ $gap-between-items: 1rem;
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		justify-content: space-between;
 		padding: 0 $gap-between-items;
+		justify-content: space-between;
 
 		@media (min-width: 400px) {
 			flex-direction: row;
@@ -41,18 +53,17 @@ $gap-between-items: 1rem;
 
 		h4 {
 			font-weight: 400;
-			color: rgb(49, 49, 49);
 			font-family: 'Red Hat Mono', monospace;
 		}
 	}
 
-	.product_body {
+	.product-body {
 		width: 100%;
 		flex-grow: 1;
 		display: flex;
 		flex-direction: column;
-		padding: 0 $gap-between-items;
 		gap: $gap-between-items;
+		padding: 0 $gap-between-items;
 
 		p {
 			font-size: 14px;
@@ -78,9 +89,9 @@ $gap-between-items: 1rem;
 
 	form {
 		display: flex;
+		gap: $gap-between-items;
 		justify-content: space-between;
 		padding: 0 $gap-between-items $gap-between-items;
-		gap: $gap-between-items;
 
 		select {
 			padding: 0.5rem;
@@ -107,7 +118,6 @@ $gap-between-items: 1rem;
 		height: auto;
 
 		img {
-			width: auto;
 			max-height: 200px;
 		}
 	}
