@@ -39,10 +39,9 @@ func Pay(c *fiber.Ctx) error {
 	}
 
 	sess.Set("STRIPE_SESSION", s.ID)
+	sess.Set("GO_BACK_HREF", "/checkout")
 
-	err = sess.Save()
-
-	if err != nil {
+	if err := sess.Save(); err != nil {
 		c.Redirect("/error")
 	}
 

@@ -47,5 +47,5 @@ func AddToCart(c *fiber.Ctx) error {
 		return c.Redirect("/error")
 	}
 
-	return c.Redirect("/")
+	return c.Redirect(string(c.Context().Referer()))
 }

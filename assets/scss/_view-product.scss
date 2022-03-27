@@ -1,0 +1,73 @@
+.view-product {
+	@media (min-width: 1200px) {
+		display: flex;
+	}
+
+	img {
+		width: 100%;
+		object-fit: contain;
+		border-radius: 0.5rem;
+	}
+
+	.view-product-info {
+		gap: 2rem;
+		display: flex;
+		padding: 2rem 1rem;
+		flex-direction: column;
+
+		@media (min-width: 1200px) {
+			padding: 0 4rem;
+		}
+
+		a {
+			width: 40px;
+			height: 40px;
+			padding: 10px;
+			display: none;
+			border-radius: 50%;
+			border-color: transparent;
+			background-color: rgb(23, 95, 228);
+
+			&:hover {
+				background-color: rgb(33, 102, 231);
+			}
+
+			@media (min-width: 1200px) {
+				display: block;
+			}
+		}
+
+		h4 {
+			font-weight: 400;
+			font-family: 'Red Hat Mono', monospace;
+		}
+
+		header {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		form {
+			padding: 0;
+		}
+
+		@media (min-width: 1200px) {
+			form {
+				margin-left: auto;
+			}
+		}
+
+		ul {
+			list-style: none;
+
+			li {
+				padding: 1rem 0;
+
+				&:not(:last-of-type) {
+					border-bottom: 1px solid rgb(235, 235, 235);
+				}
+			}
+		}
+	}
+}

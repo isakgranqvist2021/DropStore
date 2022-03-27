@@ -1,1 +1,28 @@
-<h1>Product</h1>
+<section class="view-product">
+	<img src="{{ .Product.Image.Src }}" alt="" />
+	<div class="view-product-info">
+		<a href="{{ .GoBackHref }}">
+			<img src="/public/icons/chevron-left.svg" alt="" />
+		</a>
+
+		<header>
+			<h1>{{ .Product.Name }}</h1>
+			<h4>{{ .Product.Amount }} SEK</h4>
+		</header>
+		<p>{{ .Product.Description }}</p>
+		<ul>
+			{{ range .Product.Features }}
+			<li>{{ . }}</li>
+			{{ end }}
+		</ul>
+
+		<form method="POST" action="/add-to-cart/{{ .Product.ID }}">
+			<select name="quantity">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+			</select>
+			<button>Add to cart</button>
+		</form>
+	</div>
+</section>
