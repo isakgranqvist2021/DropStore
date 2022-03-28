@@ -8,6 +8,10 @@ import (
 	"github.com/gofiber/template/html"
 	"github.com/isakgranqvist2021/dropstore/src/config"
 	"github.com/isakgranqvist2021/dropstore/src/controllers"
+	"github.com/isakgranqvist2021/dropstore/src/controllers/cart"
+	"github.com/isakgranqvist2021/dropstore/src/controllers/checkout"
+	"github.com/isakgranqvist2021/dropstore/src/controllers/products"
+	"github.com/isakgranqvist2021/dropstore/src/controllers/purchase"
 	"github.com/isakgranqvist2021/dropstore/src/utils"
 	"github.com/joho/godotenv"
 	"github.com/stripe/stripe-go/v72"
@@ -33,15 +37,19 @@ func main() {
 
 	config.NewStore()
 
-	app.Get("/", controllers.Index)
-	app.Get("/pay", controllers.Pay)
 	app.Get("/error", controllers.Error)
-	app.Get("/checkout", controllers.Checkout)
-	app.Get("/cancel", controllers.CancelPurchase)
-	app.Get("/product/:ID", controllers.ViewProduct)
-	app.Get("/success", controllers.CompletedPurchase)
-	app.Post("/add-to-cart/:ID", controllers.AddToCart)
-	app.Get("/change-quantity/:ACTION/:ID", controllers.ChangeQuantity)
+
+	app.Get("/", products.ViewProducts)
+	app.Get("/product/:ID", products.ViewProduct)
+
+	app.Post("/add-to-cart/:ID", cart.AddToCart)
+	app.Get("/change-quantity/:ACTION/:ID", cart.ChangeQuantity)
+
+	app.Post("/pay", purchase.Pay)
+	app.Get("/cancel", purchase.CancelPurchase)
+	app.Get("/success", purchase.CompletedPurchase)
+
+	app.Get("/checkout", checkout.Checkout)
 
 	log.Fatal(app.Listen(fmt.Sprintf(":%d", serverConfig.Port)))
 }

@@ -1,15 +1,15 @@
-@import './hero-section';
 @import './product';
 
 .products-grid {
 	gap: 2rem;
 	display: flex;
-	padding: 0.5rem;
+
 	flex-direction: column;
 
 	@media (min-width: 470px) {
 		display: grid;
-		padding: 2rem;
+		padding-top: 1.25rem;
+		padding-bottom: 1.25rem;
 		grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
 	}
 }

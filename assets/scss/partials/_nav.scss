@@ -1,0 +1,14 @@
+nav {
+	width: 100%;
+	display: flex;
+	cursor: pointer;
+	padding: 1.25rem 2.5rem;
+	justify-content: space-between;
+	background-color: rgb(70, 70, 70);
+	border-bottom: 1px solid rgb(233, 233, 233);
+
+	a {
+		color: #fff;
+		text-decoration: none;
+	}
+}

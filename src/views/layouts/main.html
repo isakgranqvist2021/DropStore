@@ -18,8 +18,8 @@
 		<title>Document</title>
 	</head>
 	<body>
-		<main>{{ embed }}</main>
+		{{ template "partials/nav" . }}
 
-		{{ template "partials/sidebar" . }}
+		<main class="container">{{ embed }}</main>
 	</body>
 </html>

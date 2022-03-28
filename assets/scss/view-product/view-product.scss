@@ -4,22 +4,40 @@
 .view-product {
 	@media (min-width: 1200px) {
 		display: flex;
+
+		.view-product-info {
+			gap: 2rem;
+			padding: 3rem;
+			border-left: 1px solid rgb(235, 235, 235);
+		}
 	}
 
-	img {
+	.photos {
 		width: 100%;
-		object-fit: contain;
-		border-radius: 0.5rem;
+		padding: 1rem;
+
+		img {
+			width: 100%;
+			display: flex;
+			max-width: 400px;
+			margin-bottom: auto;
+			object-fit: contain;
+			border-radius: 0.5rem;
+		}
 	}
 
 	.view-product-info {
-		gap: 2rem;
+		gap: 1rem;
 		display: flex;
-		padding: 2rem 1rem;
+		padding: 1rem;
 		flex-direction: column;
 
+		@media (min-width: 1500px) {
+			padding: 4rem;
+		}
+
 		@media (min-width: 1200px) {
-			padding: 0 4rem;
+			padding: 3rem;
 		}
 
 		a {

@@ -1,51 +1,56 @@
 <link rel="stylesheet" href="/public/css/checkout.min.css" />
 
 <section class="checkout">
-	<form>
-		<h1>Checkout</h1>
+	<form method="POST" action="/pay">
 		<section>
-			<div>
-				<label for="">First name</label>
-				<input type="text" />
-			</div>
-			<div>
-				<label for="">Last name</label>
-				<input type="text" />
-			</div>
+			<label for="firstName">First name</label>
+			<input
+				type="text"
+				name="firstName"
+				{{ if not .Products }} disabled {{end}}
+			/>
 		</section>
 		<section>
-			<div>
-				<label for="">Email</label>
-				<input type="text" />
-			</div>
-			<div>
-				<label for="">Phone</label>
-				<input type="text" />
-			</div>
+			<label for="lastName">Last name</label>
+			<input 
+				type="text" 
+				name="lastName" 
+				{{ if not .Products }} disabled {{end}} 
+			/>
 		</section>
 		<section>
-			<div>
-				<label for="">Address</label>
-				<input type="text" />
-			</div>
-			<div>
-				<label for="">Postal Code</label>
-				<input type="text" />
-			</div>
+			<label for="email">Email</label>
+			<input 
+				type="text"
+				name="email" 
+				{{ if not .Products }} disabled {{end}} 
+			/>
 		</section>
 		<section>
-			<div>
-				<label for="">Country</label>
-				<select name="" id=""></select>
-			</div>
-			<div>
-				<label for="">State/Region</label>
-				<select name="" id=""></select>
-			</div>
+			<label for="phone">Phone</label>
+			<input 
+				type="text" 
+				name="phone"
+				{{ if not .Products }} disabled {{end}} 
+			/>
 		</section>
-		{{ if .Products }}
-		<button>Continue to payment</button>
-		{{ end }}
+		<section>
+			<label for="address">Address</label>
+			<input 
+				type="text" 
+				name="address"
+				{{ if not .Products }} disabled {{end}} 
+			/>
+		</section>
+		<section>
+			<label for="postalCode">Postal Code</label>
+			<input 
+				type="text" 
+				name="postalCode"
+				{{ if not .Products }} disabled {{end}} 
+			/>
+		</section>
+		<button {{ if not .Products }} disabled {{end}}>Continue to payment</button>
 	</form>
 	<div class="inventory">
 		<ul>

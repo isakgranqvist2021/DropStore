@@ -1,4 +1,4 @@
-package controllers
+package purchase
 
 import (
 	"fmt"
@@ -11,7 +11,7 @@ func CompletedPurchase(c *fiber.Ctx) error {
 	sess, err := config.GetStore().Get(c)
 
 	if err != nil {
-		c.Redirect("/error")
+		return c.Redirect("/error")
 	}
 
 	fmt.Println(sess.Get("STRIPE_SESSION"))

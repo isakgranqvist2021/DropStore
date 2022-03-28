@@ -1,4 +1,4 @@
-package controllers
+package products
 
 import (
 	"github.com/gofiber/fiber/v2"
@@ -6,7 +6,7 @@ import (
 	"github.com/isakgranqvist2021/dropstore/src/utils"
 )
 
-func Index(c *fiber.Ctx) error {
+func ViewProducts(c *fiber.Ctx) error {
 	products, err := utils.GetProducts()
 
 	if err != nil {

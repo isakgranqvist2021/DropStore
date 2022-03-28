@@ -3,7 +3,6 @@
 
 .checkout {
 	display: grid;
-	min-height: 100vh;
 	grid-template-columns: 2fr 1fr;
 
 	@media (max-width: 1200px) {
@@ -13,10 +12,6 @@
 	@media (max-width: 1000px) {
 		display: flex;
 		flex-direction: column;
-	}
-
-	h1 {
-		margin-bottom: 1rem;
 	}
 
 	.inventory {
@@ -48,8 +43,12 @@
 				}
 
 				a {
-					text-decoration: none;
 					color: $color;
+					max-width: 50%;
+					overflow: hidden;
+					white-space: nowrap;
+					text-decoration: none;
+					text-overflow: ellipsis;
 				}
 
 				.product-details {
@@ -58,10 +57,10 @@
 					align-items: center;
 
 					h4 {
+						font-size: 14px;
 						margin-top: 6px;
 						font-weight: 400;
 						font-family: 'Red Hat Mono', monospace;
-						font-size: 14px;
 					}
 
 					img {
@@ -79,48 +78,30 @@
 	}
 
 	form {
+		gap: 2rem;
 		width: 100%;
-		padding: 2rem;
 		display: flex;
+		padding: 3rem;
 		flex-direction: column;
 
 		@media (min-width: 1000px) {
 			border-right: 1px solid rgb(235, 235, 235);
 		}
 
-		@media (min-width: 560px) {
-			gap: 1rem;
-		}
-
 		input,
 		select {
 			width: 100%;
-			padding: 0.5rem;
+			padding: 0.7rem;
 			border-radius: 0.5rem;
 			border: 1px solid rgb(219, 219, 219);
 		}
 
 		section {
-			width: 100%;
+			gap: 2rem;
 
-			@media (min-width: 560px) {
-				gap: 2rem;
-				display: flex;
-
-				div {
-					margin-bottom: 0 !important;
-				}
-			}
-
-			div {
-				width: 100%;
-				display: flex;
-				margin-bottom: 1rem;
-				flex-direction: column;
-
-				label {
-					margin-bottom: 10px;
-				}
+			label {
+				display: block;
+				margin-bottom: 7px;
 			}
 		}
 

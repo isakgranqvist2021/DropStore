@@ -1,7 +1,10 @@
 <link rel="stylesheet" href="/public/css/view-product.min.css" />
 
 <section class="view-product">
-	<img src="{{ .Product.Image.Src }}" alt="" />
+	<div class="photos">
+		<img src="{{ .Product.Image.Src }}" alt="" />
+	</div>
+
 	<div class="view-product-info">
 		<a href="{{ .GoBackHref }}">
 			<span class="material-icons-outlined">chevron_left</span>

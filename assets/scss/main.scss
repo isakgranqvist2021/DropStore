@@ -1,4 +1,4 @@
-@import './partials/sidebar';
+@import './partials/nav';
 
 * {
 	margin: 0;
@@ -9,14 +9,6 @@
 body {
 	margin: 0;
 	font-family: 'Open Sans', sans-serif;
-
-	@media (max-width: 970px) {
-		padding: 2rem;
-	}
-
-	@media (max-width: 530px) {
-		padding: 1rem;
-	}
 }
 
 button {
@@ -27,4 +19,17 @@ html,
 body,
 main {
 	width: 100%;
+}
+
+.container {
+	width: 80%;
+	margin: 0 auto;
+
+	@media (max-width: 970px) {
+		width: 100%;
+		padding: 1rem;
+	}
+
+	@media (max-width: 530px) {
+	}
 }

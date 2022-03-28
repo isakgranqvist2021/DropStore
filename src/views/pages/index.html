@@ -1,7 +1,5 @@
 <link rel="stylesheet" href="/public/css/home.min.css" />
 
-<div class="hero-section"></div>
-
 <div class="products-grid">
 	{{ range .Products }}
 	<div class="product">
@@ -15,12 +13,6 @@
 
 			<div class="product-body">
 				<p class="product-description">{{ CutStr .Description }}</p>
-
-				<ul class="product-features">
-					{{ range .Features }}
-					<li>{{ . }}</li>
-					{{ end }}
-				</ul>
 			</div>
 		</a>
 
