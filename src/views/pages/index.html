@@ -1,29 +1,22 @@
-<link rel="stylesheet" href="/public/css/home.min.css" />
-
-<div class="products-grid">
-	{{ range .Products }}
-	<div class="product">
-		<a href="/product/{{ .ID }}">
-			<img alt="{{ .Name }} product image" src="{{ .Image.Src }}" />
-
-			<div class="product-header">
-				<h2 class="product-title">{{ .Name }}</h2>
-				<h4 class="product-price">{{ .Amount }} SEK</h4>
-			</div>
-
-			<div class="product-body">
-				<p class="product-description">{{ CutStr .Description }}</p>
+<div class="uk-container-large uk-padding-large uk-margin-auto">
+	<div class="grid">
+		{{ range .Products }}
+		<a class="uk-text-decoration-none" href="/product/{{ .ID }}">
+			<div class="uk-card uk-card-default">
+				<div class="uk-card-media-top">
+					<img
+						style="height: 300px; object-fit: cover; width: 100%"
+						alt="{{ .Name }} product image"
+						src="{{ .Image.Src }}"
+					/>
+				</div>
+				<div class="uk-card-body">
+					<h3 class="uk-card-title">{{ .Name }}</h3>
+					<p>{{ CutStr .Description }}</p>
+					<p>{{ .Amount }} SEK</p>
+				</div>
 			</div>
 		</a>
-
-		<form method="POST" action="/add-to-cart/{{ .ID }}">
-			<select name="quantity">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-			</select>
-			<button>Add to cart</button>
-		</form>
+		{{ end }}
 	</div>
-	{{ end }}
 </div>

@@ -1,0 +1,21 @@
+.grid {
+	gap: 2rem;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.two-col-layout {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+}
+
+img {
+	width: 100%;
+}
+
+@media (max-width: 1200px) {
+	.two-col-layout {
+		grid-template-columns: 1fr;
+	}
+}

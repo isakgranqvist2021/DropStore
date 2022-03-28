@@ -4,22 +4,19 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Red+Hat+Mono:wght@500&display=swap"
-			rel="stylesheet"
-		/>
 		<link
 			rel="stylesheet"
-			href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined"
+			href="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/css/uikit.min.css"
 		/>
-		<link rel="stylesheet" href="/public/css/main.min.css" />
+		<link rel="stylesheet" href="/public/css/main.css" />
 		<title>Document</title>
 	</head>
 	<body>
 		{{ template "partials/nav" . }}
 
-		<main class="container">{{ embed }}</main>
+		<main>{{ embed }}</main>
+
+		<script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/uikit@3.13.5/dist/js/uikit-icons.min.js"></script>
 	</body>
 </html>

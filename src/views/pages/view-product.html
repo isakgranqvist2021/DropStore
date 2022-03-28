@@ -1,34 +1,37 @@
-<link rel="stylesheet" href="/public/css/view-product.min.css" />
-
-<section class="view-product">
-	<div class="photos">
-		<img src="{{ .Product.Image.Src }}" alt="" />
-	</div>
-
-	<div class="view-product-info">
-		<a href="{{ .GoBackHref }}">
-			<span class="material-icons-outlined">chevron_left</span>
-		</a>
-
-		<header>
+<div class="uk-container-large uk-padding-large uk-margin-auto">
+	<div class="two-col-layout">
+		<div>
+			<img src="{{ .Product.Image.Src }}" alt="" />
+		</div>
+		<div class="uk-width-1-1">
 			<h1>{{ .Product.Name }}</h1>
+
 			<h4>{{ .Product.Amount }} SEK</h4>
-		</header>
-		<p>{{ .Product.Description }}</p>
 
-		<ul>
-			{{ range .Product.Features }}
-			<li>{{ . }}</li>
-			{{ end }}
-		</ul>
+			<p>{{ .Product.Description }}</p>
 
-		<form method="POST" action="/add-to-cart/{{ .Product.ID }}">
-			<select name="quantity">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-			</select>
-			<button>Add to cart</button>
-		</form>
+			<ul class="uk-list uk-list-divider">
+				{{ range .Product.Features }}
+				<li>{{ . }}</li>
+				{{ end }}
+			</ul>
+
+			<form
+				class="uk-flex uk-margin-auto-left"
+				method="POST"
+				action="/add-to-cart/{{ .Product.ID }}"
+			>
+				<select class="uk-select" name="quantity">
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+				</select>
+				<button
+					class="uk-margin-medium-left uk-button uk-button-primary uk-width-1-1"
+				>
+					Add to cart
+				</button>
+			</form>
+		</div>
 	</div>
-</section>
+</div>

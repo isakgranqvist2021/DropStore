@@ -1,81 +1,103 @@
-<link rel="stylesheet" href="/public/css/checkout.min.css" />
-
-<section class="checkout">
-	<form method="POST" action="/pay">
-		<section>
-			<label for="firstName">First name</label>
-			<input
-				type="text"
-				name="firstName"
-				{{ if not .Products }} disabled {{end}}
-			/>
-		</section>
-		<section>
-			<label for="lastName">Last name</label>
-			<input 
-				type="text" 
-				name="lastName" 
-				{{ if not .Products }} disabled {{end}} 
-			/>
-		</section>
-		<section>
-			<label for="email">Email</label>
-			<input 
-				type="text"
-				name="email" 
-				{{ if not .Products }} disabled {{end}} 
-			/>
-		</section>
-		<section>
-			<label for="phone">Phone</label>
-			<input 
-				type="text" 
-				name="phone"
-				{{ if not .Products }} disabled {{end}} 
-			/>
-		</section>
-		<section>
-			<label for="address">Address</label>
-			<input 
-				type="text" 
-				name="address"
-				{{ if not .Products }} disabled {{end}} 
-			/>
-		</section>
-		<section>
-			<label for="postalCode">Postal Code</label>
-			<input 
-				type="text" 
-				name="postalCode"
-				{{ if not .Products }} disabled {{end}} 
-			/>
-		</section>
-		<button {{ if not .Products }} disabled {{end}}>Continue to payment</button>
-	</form>
-	<div class="inventory">
-		<ul>
-			{{ range .Products }}
-			<li>
-				<a href="/product/{{ .ID }}">
-					<div class="product-details">
-						<img src="{{ .Image.Src }}" alt="" />
-						<div>
-							<h3>{{ .Name }}</h3>
-							<h4>{{ .Amount }} SEK</h4>
+<div class="uk-container-large uk-padding-large uk-margin-auto">
+	<div class="two-col-layout">
+		<form class="uk-width-1-1" method="POST" action="/pay">
+			<section class="uk-margin">
+				<label
+					for="firstName"
+					class="uk-text-uppercase uk-text-meta uk-margin-small-bottom uk-display-block"
+				>
+					First name
+				</label>
+				<input type="text" name="firstName" class="uk-input" />
+			</section>
+			<section class="uk-margin">
+				<label
+					class="uk-text-uppercase uk-text-meta uk-margin-small-bottom uk-display-block"
+					for="lastName"
+					>Last name</label
+				>
+				<input type="text" name="lastName" class="uk-input" />
+			</section>
+			<section class="uk-margin">
+				<label
+					class="uk-text-uppercase uk-text-meta uk-margin-small-bottom uk-display-block"
+					for="email"
+					>Email</label
+				>
+				<input type="text" name="email" class="uk-input" />
+			</section>
+			<section class="uk-margin">
+				<label
+					class="uk-text-uppercase uk-text-meta uk-margin-small-bottom uk-display-block"
+					for="phone"
+					>Phone</label
+				>
+				<input type="text" name="phone" class="uk-input" />
+			</section>
+			<section class="uk-margin">
+				<label
+					class="uk-text-uppercase uk-text-meta uk-margin-small-bottom uk-display-block"
+					for="address"
+					>Address</label
+				>
+				<input type="text" name="address" class="uk-input" />
+			</section>
+			<section class="uk-margin">
+				<label
+					class="uk-text-uppercase uk-text-meta uk-margin-small-bottom uk-display-block"
+					for="postalCode"
+					>Postal Code</label
+				>
+				<input type="text" name="postalCode" class="uk-input" />
+			</section>
+			<button class="uk-button uk-button-primary">Continue to payment</button>
+		</form>
+		<div class="uk-width-1-1">
+			<ul class="uk-list uk-list-divider">
+				{{ range .Products }}
+				<li class="uk-flex uk-flex-between uk-flex-middle">
+					<a class="uk-flex" href="/product/{{ .ID }}">
+						<img
+							style="width: 50px; height: 50px; border-radius: 50%"
+							src="{{ .Image.Src }}"
+							alt=""
+						/>
+						<div class="uk-margin-left">
+							<p class="uk-margin-remove">{{ .Name }}</p>
+							<p class="uk-margin-remove">{{ .Amount }} SEK</p>
 						</div>
+					</a>
+					<div class="uk-flex uk-flex-middle" style="gap: 20px">
+						<a
+							class="uk-text-decoration-none uk-button-default uk-flex uk-flex-center uk-flex-middle"
+							style="
+								border-radius: 50%;
+								padding: 5px;
+								width: 15px;
+								height: 15px;
+							"
+							href="/change-quantity/decrement/{{ .ID }}"
+						>
+							<span uk-icon="icon: minus; ratio: .5"></span>
+						</a>
+						<span class="uk-margin uk-display-flex">{{ .Quantity }}</span>
+
+						<a
+							class="uk-text-decoration-none uk-button-default uk-flex uk-flex-center uk-flex-middle"
+							style="
+								border-radius: 50%;
+								padding: 5px;
+								width: 15px;
+								height: 15px;
+							"
+							href="/change-quantity/increment/{{ .ID }}"
+						>
+							<span uk-icon="icon: plus; ratio: .5"></span>
+						</a>
 					</div>
-				</a>
-				<div class="product-quantity">
-					<a href="/change-quantity/increment/{{ .ID }}">
-						<span class="material-icons-outlined">add</span>
-					</a>
-					<span>{{ .Quantity }}</span>
-					<a href="/change-quantity/decrement/{{ .ID }}">
-						<span class="material-icons-outlined">remove</span>
-					</a>
-				</div>
-			</li>
-			{{ end }}
-		</ul>
+				</li>
+				{{ end }}
+			</ul>
+		</div>
 	</div>
-</section>
+</div>
