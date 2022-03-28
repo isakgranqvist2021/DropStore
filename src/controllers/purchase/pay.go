@@ -24,6 +24,7 @@ func Pay(c *fiber.Ctx) error {
 		return c.Redirect("/error")
 	}
 
+	// TODO - inject cart items in LineItems
 	params := &stripe.CheckoutSessionParams{
 		LineItems: models.ConvertProductsToStripeLineItems(&[]models.Product{
 			{Amount: 200, Name: "Sporting Pants"},
