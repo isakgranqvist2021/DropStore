@@ -8,7 +8,6 @@ import (
 var Store *session.Store
 
 func NewStore() *session.Store {
-
 	Store = session.New()
 
 	Store.RegisterType([]models.CartItem{})

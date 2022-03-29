@@ -24,12 +24,6 @@ func Checkout(c *fiber.Ctx) error {
 
 	products := utils.JoinCart(cartInventory)
 
-	sess.Set("GO_BACK_HREF", "/checkout")
-
-	if err := sess.Save(); err != nil {
-		return c.Redirect("/error")
-	}
-
 	return c.Render("pages/checkout", fiber.Map{
 		"Products": products,
 	})

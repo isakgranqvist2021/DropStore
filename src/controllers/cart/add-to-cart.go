@@ -4,7 +4,7 @@ import (
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/isakgranqvist2021/dropstore/src/config"
+	"github.com/isakgranqvist2021/dropstore/src/helpers/cart"
 	"github.com/isakgranqvist2021/dropstore/src/models"
 )
 
@@ -23,27 +23,7 @@ func AddToCart(c *fiber.Ctx) error {
 
 	newItem.ID = int(productId)
 
-	sess, err := config.GetStore().Get(c)
-
-	if err != nil {
-		return c.Redirect("/error")
-	}
-
-	cartInventory := sess.Get("CART_INVENTORY")
-
-	if err != nil {
-		return c.Redirect("/error")
-	}
-
-	if cartInventory != nil {
-		cartInventory = append(cartInventory.([]models.CartItem), newItem)
-	} else {
-		cartInventory = []models.CartItem{newItem}
-	}
-
-	sess.Set("CART_INVENTORY", cartInventory)
-
-	if err := sess.Save(); err != nil {
+	if err := cart.AddToCartAndUpdateSession(c, newItem); err != nil {
 		return c.Redirect("/error")
 	}
 
