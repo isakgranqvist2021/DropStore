@@ -27,11 +27,18 @@
 					<option value="3">3</option>
 				</select>
 				<button
+					type="button"
+					id="add-to-cart"
+					onclick="addToCart('{{ .Product.ID }}')"
 					class="uk-margin-medium-left uk-button uk-button-primary uk-width-1-1"
 				>
 					Add to cart
 				</button>
 			</form>
+
+			<div id="alert-container" class="uk-margin-top"></div>
 		</div>
 	</div>
 </div>
+
+<script src="/public/js/add-to-cart.js"></script>
