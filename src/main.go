@@ -7,11 +7,11 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/template/html"
 	"github.com/isakgranqvist2021/dropstore/src/config"
-	"github.com/isakgranqvist2021/dropstore/src/controllers"
-	"github.com/isakgranqvist2021/dropstore/src/controllers/cart"
-	"github.com/isakgranqvist2021/dropstore/src/controllers/checkout"
-	"github.com/isakgranqvist2021/dropstore/src/controllers/products"
-	"github.com/isakgranqvist2021/dropstore/src/controllers/purchase"
+	"github.com/isakgranqvist2021/dropstore/src/packages/alert"
+	"github.com/isakgranqvist2021/dropstore/src/packages/cart"
+	"github.com/isakgranqvist2021/dropstore/src/packages/error"
+	"github.com/isakgranqvist2021/dropstore/src/packages/order"
+	"github.com/isakgranqvist2021/dropstore/src/packages/product"
 	"github.com/isakgranqvist2021/dropstore/src/utils"
 	"github.com/joho/godotenv"
 	"github.com/stripe/stripe-go/v72"
@@ -35,21 +35,23 @@ func main() {
 
 	app.Static("/public", BASEDIR+"/public")
 
-	config.NewStore()
+	store := config.NewStore()
+	store.RegisterType([]cart.CartItem{})
+	store.RegisterType(alert.Alert{})
 
-	app.Get("/error", controllers.Error)
+	app.Get("/error", error.Error)
 
-	app.Get("/", products.ViewProducts)
-	app.Get("/product/:ID", products.ViewProduct)
+	app.Get("/", product.ViewProducts)
+	app.Get("/product/:ID", product.ViewProduct)
 
 	app.Post("/add-to-cart/:ID", cart.AddToCart)
 	app.Get("/change-quantity/:ACTION/:ID", cart.ChangeQuantity)
 
-	app.Post("/pay", purchase.Pay)
-	app.Get("/cancel", purchase.CancelPurchase)
-	app.Get("/success", purchase.CompletedPurchase)
+	app.Post("/pay", order.Pay)
+	app.Get("/cancel", order.Cancel)
+	app.Get("/success", order.Success)
 
-	app.Get("/checkout", checkout.Checkout)
+	app.Get("/checkout", cart.Checkout)
 
 	log.Fatal(app.Listen(fmt.Sprintf(":%d", serverConfig.Port)))
 }

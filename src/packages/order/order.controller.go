@@ -1,17 +1,43 @@
-package purchase
+package order
 
 import (
+	"fmt"
 	"log"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/isakgranqvist2021/dropstore/src/config"
-	"github.com/isakgranqvist2021/dropstore/src/models"
+	"github.com/isakgranqvist2021/dropstore/src/packages/cart"
+	"github.com/isakgranqvist2021/dropstore/src/packages/product"
 	"github.com/stripe/stripe-go/v72"
 	"github.com/stripe/stripe-go/v72/checkout/session"
 )
 
+func Cancel(c *fiber.Ctx) error {
+	sess, err := config.GetStore().Get(c)
+
+	if err != nil {
+		return c.Redirect("/error")
+	}
+
+	fmt.Println(sess.Get("STRIPE_SESSION"))
+
+	return c.Redirect("/checkout")
+}
+
+func Success(c *fiber.Ctx) error {
+	sess, err := config.GetStore().Get(c)
+
+	if err != nil {
+		return c.Redirect("/error")
+	}
+
+	fmt.Println(sess.Get("STRIPE_SESSION"))
+
+	return c.Render("pages/completed-purchase", nil)
+}
+
 func Pay(c *fiber.Ctx) error {
-	var body models.Order
+	var body Order
 
 	if err := c.BodyParser(&body); err != nil {
 		log.Fatal(err)
@@ -24,12 +50,10 @@ func Pay(c *fiber.Ctx) error {
 		return c.Redirect("/error")
 	}
 
-	// TODO - inject cart items in LineItems
+	body.Products = cart.JoinCart(sess.Get("CART_INVENTORY").([]cart.CartItem))
+
 	params := &stripe.CheckoutSessionParams{
-		LineItems: models.ConvertProductsToStripeLineItems(&[]models.Product{
-			{Amount: 200, Name: "Sporting Pants"},
-			{Amount: 250, Name: "Sporting Shirt"},
-		}),
+		LineItems:  product.ConvertProductsToStripeLineItems(&body.Products),
 		Mode:       stripe.String(string(stripe.CheckoutSessionModePayment)),
 		SuccessURL: stripe.String(config.GetConfig().GetDomain() + "/success"),
 		CancelURL:  stripe.String(config.GetConfig().GetDomain() + "/cancel"),

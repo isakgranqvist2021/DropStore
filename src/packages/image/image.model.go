@@ -1,4 +1,4 @@
-package models
+package image
 
 type Image struct {
 	Src string

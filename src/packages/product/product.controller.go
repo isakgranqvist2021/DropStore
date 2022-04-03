@@ -1,10 +1,9 @@
-package products
+package product
 
 import (
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
-	"github.com/isakgranqvist2021/dropstore/src/utils"
 )
 
 func ViewProduct(c *fiber.Ctx) error {
@@ -14,7 +13,7 @@ func ViewProduct(c *fiber.Ctx) error {
 		return c.Redirect("/error")
 	}
 
-	product, err := utils.GetProduct(int(ID))
+	product, err := GetProduct(int(ID))
 
 	if err != nil {
 		return c.Redirect("/error")
@@ -22,5 +21,17 @@ func ViewProduct(c *fiber.Ctx) error {
 
 	return c.Render("pages/view-product", fiber.Map{
 		"Product": product,
+	})
+}
+
+func ViewProducts(c *fiber.Ctx) error {
+	products, err := GetProducts()
+
+	if err != nil {
+		return c.Redirect("/error")
+	}
+
+	return c.Render("pages/index", fiber.Map{
+		"Products": products,
 	})
 }

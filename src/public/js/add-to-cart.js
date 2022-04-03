@@ -1,11 +1,4 @@
 /*
-    primary, 
-    success, 
-    warning, 
-    danger
-*/
-
-/*
     element: string;
     className: string, 
     attributes: {
@@ -73,17 +66,19 @@ const addToCart = async (productId) => {
 
 		const quantity = parseInt(quantityInput.value);
 
-		const res = await fetch('/add-to-cart/' + productId, {
+		const requestInit = {
 			method: 'POST',
 			body: JSON.stringify({ quantity }),
 			headers: {
 				'Content-Type': 'application/json',
 			},
-		});
+		};
 
-		const data = await res.json();
+		const res = await (
+			await fetch('/add-to-cart/' + productId, requestInit)
+		).json();
 
-		appendAlert(data.message, data.success ? 'success' : 'danger');
+		appendAlert(res.message, res.success ? 'success' : 'danger');
 	} catch (err) {
 		return;
 	}
