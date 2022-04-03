@@ -5,6 +5,8 @@ import (
 	"os"
 )
 
+const BASEDIR = "./src"
+
 type Config struct {
 	Host      string
 	HTTPS     bool

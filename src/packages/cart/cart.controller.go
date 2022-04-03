@@ -1,7 +1,6 @@
 package cart
 
 import (
-	"fmt"
 	"strconv"
 
 	"github.com/gofiber/fiber/v2"
@@ -12,7 +11,6 @@ func AddToCart(c *fiber.Ctx) error {
 	var newItem CartItem
 
 	if err := c.BodyParser(&newItem); err != nil {
-		fmt.Println(err)
 		return c.JSON(fiber.Map{
 			"message": "Invalid request body",
 			"success": false,
@@ -62,7 +60,7 @@ func ChangeQuantity(c *fiber.Ctx) error {
 		return c.Redirect("/error")
 	}
 
-	return c.Redirect("/checkout")
+	return c.Redirect("/cart")
 }
 
 func Checkout(c *fiber.Ctx) error {

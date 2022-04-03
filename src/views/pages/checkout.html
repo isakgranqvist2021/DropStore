@@ -1,6 +1,6 @@
 <div class="uk-container-large uk-padding-large uk-margin-auto">
 	<div class="two-col-layout">
-		<form class="uk-width-1-1" method="POST" action="/pay">
+		<form class="uk-width-1-1" method="POST" action="/order">
 			<section class="uk-margin">
 				<label
 					for="firstName"
@@ -56,7 +56,7 @@
 			<ul class="uk-list uk-list-divider">
 				{{ range .Products }}
 				<li class="uk-flex uk-flex-between uk-flex-middle">
-					<a class="uk-flex" href="/product/{{ .ID }}">
+					<a class="uk-flex" href="/{{ .ID }}">
 						<img
 							style="width: 50px; height: 50px; border-radius: 50%"
 							src="{{ .Image.Src }}"
@@ -76,7 +76,7 @@
 								width: 15px;
 								height: 15px;
 							"
-							href="/change-quantity/decrement/{{ .ID }}"
+							href="/cart/change-quantity/decrement/{{ .ID }}"
 						>
 							<span uk-icon="icon: minus; ratio: .5"></span>
 						</a>
@@ -90,7 +90,7 @@
 								width: 15px;
 								height: 15px;
 							"
-							href="/change-quantity/increment/{{ .ID }}"
+							href="/cart/change-quantity/increment/{{ .ID }}"
 						>
 							<span uk-icon="icon: plus; ratio: .5"></span>
 						</a>

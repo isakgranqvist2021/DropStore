@@ -75,7 +75,7 @@ const addToCart = async (productId) => {
 		};
 
 		const res = await (
-			await fetch('/add-to-cart/' + productId, requestInit)
+			await fetch('/cart/add-to-cart/' + productId, requestInit)
 		).json();
 
 		appendAlert(res.message, res.success ? 'success' : 'danger');

@@ -21,7 +21,7 @@ func Cancel(c *fiber.Ctx) error {
 
 	fmt.Println(sess.Get("STRIPE_SESSION"))
 
-	return c.Redirect("/checkout")
+	return c.Redirect("/cart")
 }
 
 func Success(c *fiber.Ctx) error {
@@ -55,8 +55,8 @@ func Pay(c *fiber.Ctx) error {
 	params := &stripe.CheckoutSessionParams{
 		LineItems:  product.ConvertProductsToStripeLineItems(&body.Products),
 		Mode:       stripe.String(string(stripe.CheckoutSessionModePayment)),
-		SuccessURL: stripe.String(config.GetConfig().GetDomain() + "/success"),
-		CancelURL:  stripe.String(config.GetConfig().GetDomain() + "/cancel"),
+		SuccessURL: stripe.String(config.GetConfig().GetDomain() + "/order/success"),
+		CancelURL:  stripe.String(config.GetConfig().GetDomain() + "/order/cancel"),
 	}
 
 	s, err := session.New(params)
