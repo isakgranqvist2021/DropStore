@@ -7,4 +7,5 @@ require (
 	github.com/gofiber/template v1.6.25 // indirect
 	github.com/joho/godotenv v1.4.0
 	github.com/stripe/stripe-go/v72 v72.94.0
+	go.mongodb.org/mongo-driver v1.8.4 // indirect
 )

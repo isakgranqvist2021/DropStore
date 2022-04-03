@@ -1,7 +1,7 @@
 <div class="uk-container-large uk-padding-large uk-margin-auto">
 	<div class="two-col-layout">
 		<div>
-			<img src="{{ .Product.Image.Src }}" alt="" />
+			<img src="{{ .Product.Image.Src }}" alt="{{ .Product.Name }}" />
 		</div>
 		<div class="uk-width-1-1">
 			<h1>{{ .Product.Name }}</h1>
@@ -17,8 +17,8 @@
 			</ul>
 
 			<form
-				class="uk-flex uk-margin-auto-left"
 				method="POST"
+				class="uk-flex uk-margin-auto-left"
 				action="/add-to-cart/{{ .Product.ID }}"
 			>
 				<select class="uk-select" name="quantity">

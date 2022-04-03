@@ -6,6 +6,7 @@ import (
 
 type Order struct {
 	ID         int
+	Status     string
 	Products   []product.Product
 	FirstName  string `form:"firstName"`
 	LastName   string `form:"lastName"`

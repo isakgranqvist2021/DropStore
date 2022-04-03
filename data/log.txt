@@ -1,0 +1,18 @@
+Sun, 03 Apr 2022 19:55:53 CEST strconv.ParseInt: parsing "favicon.ico": invalid syntax
+Sun, 03 Apr 2022 21:15:51 CEST gob: type not registered for interface: primitive.ObjectID
+Sun, 03 Apr 2022 21:46:31 CEST Cast failed interface{} -> string
+Sun, 03 Apr 2022 21:46:48 CEST You must connect to mongoDB
+Sun, 03 Apr 2022 21:47:00 CEST You must connect to mongoDB
+Sun, 03 Apr 2022 21:49:36 CEST You must connect to mongoDB
+Sun, 03 Apr 2022 21:50:51 CEST You must connect to mongoDB
+Sun, 03 Apr 2022 21:51:44 CEST update document must contain key beginning with '$'
+Sun, 03 Apr 2022 21:53:42 CEST write exception: write errors: [Unknown modifier: $canceled. Expected a valid update modifier or pipeline-style update specified as an array]
+Sun, 03 Apr 2022 21:54:43 CEST write exception: write errors: [Unknown modifier: $status. Expected a valid update modifier or pipeline-style update specified as an array]
+Sun, 03 Apr 2022 21:59:41 CEST the provided hex string is not a valid ObjectID
+Sun, 03 Apr 2022 22:01:19 CEST the provided hex string is not a valid ObjectID
+Sun, 03 Apr 2022 22:03:10 CEST Cast failed interface{} -> *primitive.ObjectID
+Sun, 03 Apr 2022 22:04:00 CEST Cast failed interface{} -> primitive.ObjectID
+Sun, 03 Apr 2022 22:04:58 CEST Cast failed interface{} -> primitive.ObjectID
+Sun, 03 Apr 2022 22:05:46 CEST Cast failed interface{} -> primitive.ObjectID
+Sun, 03 Apr 2022 22:11:48 CEST the provided hex string is not a valid ObjectID
+Sun, 03 Apr 2022 22:21:26 CEST gob: type not registered for interface: primitive.ObjectID

@@ -1,4 +1,5 @@
 <div class="uk-container-large uk-padding-large uk-margin-auto">
+	{{ if .Products }}
 	<div class="two-col-layout">
 		<form class="uk-width-1-1" method="POST" action="/order">
 			<section class="uk-margin">
@@ -48,7 +49,7 @@
 					for="postalCode"
 					>Postal Code</label
 				>
-				<input type="text" name="postalCode" class="uk-input" />
+				<input type="text" class="uk-input" name="postalCode" />
 			</section>
 			<button class="uk-button uk-button-primary">Continue to payment</button>
 		</form>
@@ -56,7 +57,7 @@
 			<ul class="uk-list uk-list-divider">
 				{{ range .Products }}
 				<li class="uk-flex uk-flex-between uk-flex-middle">
-					<a class="uk-flex" href="/{{ .ID }}">
+					<a class="uk-flex" href="/{{ .Name }}/{{ .ID }}">
 						<img
 							style="width: 50px; height: 50px; border-radius: 50%"
 							src="{{ .Image.Src }}"
@@ -100,4 +101,10 @@
 			</ul>
 		</div>
 	</div>
+	{{ else }}
+	<div>
+		<h3>empty cart</h3>
+		<a href="/">Back to products</a>
+	</div>
+	{{ end }}
 </div>

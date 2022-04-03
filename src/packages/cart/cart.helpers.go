@@ -2,12 +2,12 @@ package cart
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/isakgranqvist2021/dropstore/src/config"
 	"github.com/isakgranqvist2021/dropstore/src/packages/product"
+	"github.com/isakgranqvist2021/dropstore/src/services/store"
 )
 
 func AddToCartAndUpdateSession(c *fiber.Ctx, newItem CartItem) error {
-	sess, err := config.GetStore().Get(c)
+	sess, err := store.GetStore().Get(c)
 
 	if err != nil {
 		return err
@@ -31,7 +31,7 @@ func AddToCartAndUpdateSession(c *fiber.Ctx, newItem CartItem) error {
 }
 
 func ChangeQtyAndUpdateSession(c *fiber.Ctx, productId int, action string) error {
-	sess, err := config.GetStore().Get(c)
+	sess, err := store.GetStore().Get(c)
 
 	if err != nil {
 		return err

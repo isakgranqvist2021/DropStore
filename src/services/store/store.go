@@ -1,4 +1,4 @@
-package config
+package store
 
 import (
 	"github.com/gofiber/fiber/v2/middleware/session"
