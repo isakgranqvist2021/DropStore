@@ -33,7 +33,7 @@ func Success(c *fiber.Ctx) error {
 
 	fmt.Println(sess.Get("STRIPE_SESSION"))
 
-	return c.Render("pages/completed-purchase", nil)
+	return c.Render("pages/cart/success", nil)
 }
 
 func Pay(c *fiber.Ctx) error {

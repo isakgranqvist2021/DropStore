@@ -19,7 +19,7 @@ func ViewProduct(c *fiber.Ctx) error {
 		return c.Redirect("/error")
 	}
 
-	return c.Render("pages/view-product", fiber.Map{
+	return c.Render("pages/product/product", fiber.Map{
 		"Product": product,
 	})
 }
@@ -31,7 +31,7 @@ func ViewProducts(c *fiber.Ctx) error {
 		return c.Redirect("/error")
 	}
 
-	return c.Render("pages/index", fiber.Map{
+	return c.Render("pages/product/index", fiber.Map{
 		"Products": products,
 	})
 }

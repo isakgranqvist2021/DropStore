@@ -63,7 +63,7 @@ func ChangeQuantity(c *fiber.Ctx) error {
 	return c.Redirect("/cart")
 }
 
-func Checkout(c *fiber.Ctx) error {
+func Cart(c *fiber.Ctx) error {
 	sess, err := config.GetStore().Get(c)
 
 	if err != nil {
@@ -80,7 +80,7 @@ func Checkout(c *fiber.Ctx) error {
 
 	products := JoinCart(cartInventory)
 
-	return c.Render("pages/checkout", fiber.Map{
+	return c.Render("pages/cart/index", fiber.Map{
 		"Products": products,
 	})
 }
