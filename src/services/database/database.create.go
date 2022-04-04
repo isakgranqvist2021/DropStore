@@ -6,7 +6,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-func (options Options) InsertOne() (*primitive.ObjectID, error) {
+func (options CreateOptions) InsertOne() (*primitive.ObjectID, error) {
 	db, err := GetDb()
 
 	if err != nil {

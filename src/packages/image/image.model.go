@@ -1,6 +1,6 @@
 package image
 
 type Image struct {
-	Src string
-	Alt string
+	Src string `json:"src"`
+	Alt string `json:"alt"`
 }

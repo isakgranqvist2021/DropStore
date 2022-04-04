@@ -12,11 +12,6 @@ import (
 
 var Client *mongo.Client = nil
 
-type Options struct {
-	Collection string
-	Payload    interface{}
-}
-
 func Disconnect() error {
 	fmt.Println("Disconnect")
 

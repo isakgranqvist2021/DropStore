@@ -16,3 +16,18 @@ Sun, 03 Apr 2022 22:04:58 CEST Cast failed interface{} -> primitive.ObjectID
 Sun, 03 Apr 2022 22:05:46 CEST Cast failed interface{} -> primitive.ObjectID
 Sun, 03 Apr 2022 22:11:48 CEST the provided hex string is not a valid ObjectID
 Sun, 03 Apr 2022 22:21:26 CEST gob: type not registered for interface: primitive.ObjectID
+Mon, 04 Apr 2022 20:56:48 CEST invalid character '[' looking for beginning of value
+Mon, 04 Apr 2022 21:02:42 CEST document is nil
+Mon, 04 Apr 2022 21:03:38 CEST document is nil
+Mon, 04 Apr 2022 21:03:42 CEST document is nil
+Mon, 04 Apr 2022 21:18:13 CEST results argument must be a pointer to a slice, but was a pointer to ptr
+Mon, 04 Apr 2022 21:20:28 CEST results argument must be a pointer to a slice, but was a pointer to ptr
+Mon, 04 Apr 2022 21:24:09 CEST results argument must be a pointer to a slice, but was a pointer to ptr
+Mon, 04 Apr 2022 21:24:11 CEST results argument must be a pointer to a slice, but was a pointer to ptr
+Mon, 04 Apr 2022 21:28:49 CEST No product found
+Mon, 04 Apr 2022 21:40:00 CEST mongo: no documents in result
+Mon, 04 Apr 2022 21:40:29 CEST mongo: no documents in result
+Mon, 04 Apr 2022 21:44:38 CEST encoding/hex: invalid byte: U+0078 'x'
+Mon, 04 Apr 2022 21:44:40 CEST encoding/hex: invalid byte: U+006E 'n'
+Mon, 04 Apr 2022 21:44:41 CEST encoding/hex: invalid byte: U+006E 'n'
+Mon, 04 Apr 2022 21:44:42 CEST encoding/hex: invalid byte: U+0076 'v'

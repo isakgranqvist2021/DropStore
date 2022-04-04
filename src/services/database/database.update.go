@@ -7,7 +7,7 @@ import (
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
-func (options Options) UpdateOneByID(ID *string) error {
+func (options UpdateOptions) UpdateOneByID(ID *string) error {
 	db, err := GetDb()
 
 	if err != nil {

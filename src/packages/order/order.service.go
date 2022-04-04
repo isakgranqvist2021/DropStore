@@ -9,9 +9,9 @@ import (
 func CreateOrder(order Order) (*primitive.ObjectID, error) {
 	order.Status = "pending"
 
-	insertOptions := database.Options{Collection: "orders", Payload: order}
+	createOptions := database.CreateOptions{Collection: "orders", Payload: order}
 
-	return insertOptions.InsertOne()
+	return createOptions.InsertOne()
 }
 
 func UpdateOrderStatus(ID *string, status string) error {
@@ -25,7 +25,7 @@ func UpdateOrderStatus(ID *string, status string) error {
 		},
 	}}
 
-	insertOptions := database.Options{Collection: "orders", Payload: payload}
+	createOptions := database.UpdateOptions{Collection: "orders", Payload: payload}
 
-	return insertOptions.UpdateOneByID(ID)
+	return createOptions.UpdateOneByID(ID)
 }

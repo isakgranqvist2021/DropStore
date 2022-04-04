@@ -7,14 +7,14 @@ import (
 )
 
 type Product struct {
-	ID          string
-	Amount      int
-	Description string
-	Image       image.Image
-	Features    []string
-	Name        string
-	Stock       int
-	Quantity    int
+	ID          string      `bson:"_id"`
+	Amount      int         `bson:"amount"`
+	Description string      `bson:"description"`
+	Image       image.Image `bson:"image"`
+	Features    []string    `bson:"features"`
+	Name        string      `bson:"name"`
+	Stock       int         `bson:"stock"`
+	Quantity    int         `bson:"quantity"`
 }
 
 func (product *Product) ConvertToStripeProduct() *stripe.CheckoutSessionLineItemParams {

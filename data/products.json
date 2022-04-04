@@ -1,66 +1,58 @@
 [
 	{
-		"ID": "walpfz0gi0cwn339o9iq",
-		"Name": "Topspin 3",
-		"Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages",
-		"Amount": 350,
-		"Stock": 4,
-		"Features": ["Wii", "Video Game", "Gaming", "Sport Games", "Tennis"],
-		"Image": {
-			"src": "/public/img/277311765_5076150342428468_7666739674731008933_n.jpg"
+		"name": "Topspin 3",
+		"description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages",
+		"amount": 350,
+		"stock": 4,
+		"features": ["Wii", "Video Game", "Gaming", "Sport Games", "Tennis"],
+		"image": {
+			"src": "walpfz0gi0cwn339o9iq.png",
+			"alt": ""
 		}
 	},
 	{
-		"ID": "x3l7ycwpb7vegld9s0cp",
-		"Name": "Airpods 3",
-		"Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages",
-		"Amount": 1200,
-		"Stock": 2,
-		"Features": ["Apple", "Sound", "Phone", "Quality", "Steve Jobs"],
-		"Image": {
-			"src": "/public/img/276062397_4441891062576954_1449858416366576093_n.png"
+		"name": "Airpods 3",
+		"description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages",
+		"amount": 1200,
+		"stock": 2,
+		"features": ["Apple", "Sound", "Phone", "Quality", "Steve Jobs"],
+		"image": {
+			"src": "x3l7ycwpb7vegld9s0cp.png",
+			"alt": ""
 		}
 	},
 	{
-		"ID": "7eenvmdqgryr4ha7vi77",
-		"Name": "Iphone 6",
-		"Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages",
-		"Amount": 900,
-		"Stock": 2,
-		"Features": [
+		"name": "Iphone 6",
+		"description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages",
+		"amount": 900,
+		"stock": 2,
+		"features": [
 			"Iphone 6 plus",
 			"Roseguld",
 			"Fint skick!",
 			"Batterihälsa 86%",
 			"16gb"
 		],
-		"Image": {
-			"src": "/public/img/277110345_4981884471890806_3379010192801252323_n.jpg"
+		"image": {
+			"src": "7eenvmdqgryr4ha7vi77.png",
+			"alt": ""
 		}
 	},
 	{
-		"ID": "v81w1cdz3snom1uoqch2",
-		"Name": "Asus Gtx 560ti",
-		"Description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages",
-		"Amount": 500,
-		"Stock": 2,
-		"Features": [
+		"name": "Asus Gtx 560ti",
+		"description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages",
+		"amount": 500,
+		"stock": 2,
+		"features": [
 			"Iphone 6 plus",
 			"Roseguld",
 			"Fint skick!",
 			"Batterihälsa 86%",
 			"16gb"
 		],
-		"Image": {
-			"src": "/public/img/277040822_4783561041766995_3025175041584980607_n.png"
+		"image": {
+			"src": "v81w1cdz3snom1uoqch2.png",
+			"alt": ""
 		}
-	},
-	{
-		"ID": "rrp14c1qt6jjhqfizxuy",
-		"Name": "PlayStation 4 Dual Hock Wireless Controller D",
-		"Description": "Dela till hands: Tillägget av knappen Dela gör det enkelt att dela dina största spelögonblick med en knapptryckning. Ladda upp videor och skärmdumpar direkt från ditt system eller livestreama ditt spel, allt utan att köra spelet. Nya sätt att spela: Revolutionerande funktioner som pekplatta, integrerad ljusfält och inbyggd högtalare erbjuder spännande nya sätt att uppleva och interagera med dina spel och dess 3,5 mm ljudjack erbjuder en praktisk personlig ljudlösning för spel som vill lyssna på sina spel. spel spel med full kontroll, pekplatta, inbyggda högtalare och stereoheadset",
-		"Amount": 399,
-		"Features": [],
-		"Image": { "src": "/public/img/4feab9d34f08.webp" }
 	}
 ]
