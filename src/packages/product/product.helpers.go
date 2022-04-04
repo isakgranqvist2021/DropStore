@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 )
 
-func FindProduct(productId int, products *[]Product) *Product {
+func FindProduct(productId string, products *[]Product) *Product {
 	for _, v := range *products {
 		if v.ID == productId {
 			return &v
@@ -17,7 +17,7 @@ func FindProduct(productId int, products *[]Product) *Product {
 }
 
 // Find product from raw without qty
-func GetProduct(ID int) (*Product, error) {
+func GetProduct(ID string) (*Product, error) {
 	products, err := GetProducts()
 
 	if err != nil {

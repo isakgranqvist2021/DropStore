@@ -1,8 +1,6 @@
 package cart
 
 import (
-	"strconv"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/isakgranqvist2021/dropstore/src/services/logger"
 	"github.com/isakgranqvist2021/dropstore/src/services/store"
@@ -21,19 +19,7 @@ func AddToCart(c *fiber.Ctx) error {
 		})
 	}
 
-	productId, err := strconv.ParseInt(c.Params("ID"), 10, 64)
-
-	if err != nil {
-		go logger.Log(err)
-
-		return c.JSON(fiber.Map{
-			"message": "Invalid query parameter",
-			"success": false,
-			"data":    nil,
-		})
-	}
-
-	newItem.ID = int(productId)
+	newItem.ID = c.Params("ID")
 
 	if err := AddToCartAndUpdateSession(c, newItem); err != nil {
 		go logger.Log(err)
@@ -55,17 +41,7 @@ func AddToCart(c *fiber.Ctx) error {
 func ChangeQuantity(c *fiber.Ctx) error {
 	action := c.Params("ACTION")
 
-	productId, err := strconv.ParseInt(c.Params("ID"), 10, 64)
-
-	if err != nil {
-		go logger.Log(err)
-
-		return c.Redirect("/error")
-	}
-
-	err = ChangeQtyAndUpdateSession(c, int(productId), action)
-
-	if err != nil {
+	if err := ChangeQtyAndUpdateSession(c, c.Params("ID"), action); err != nil {
 		go logger.Log(err)
 
 		return c.Redirect("/error")

@@ -14,3 +14,7 @@ func CutStr(value string) string {
 	return subStr + "..."
 
 }
+
+func ReplaceWhiteSpaceWithUnderscore(value string) string {
+	return strings.ToLower(strings.ReplaceAll(value, " ", "_"))
+}

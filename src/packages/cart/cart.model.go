@@ -1,6 +1,6 @@
 package cart
 
 type CartItem struct {
-	ID       int
+	ID       string
 	Quantity int `json:"quantity"`
 }

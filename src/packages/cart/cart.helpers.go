@@ -30,7 +30,7 @@ func AddToCartAndUpdateSession(c *fiber.Ctx, newItem CartItem) error {
 	return nil
 }
 
-func ChangeQtyAndUpdateSession(c *fiber.Ctx, productId int, action string) error {
+func ChangeQtyAndUpdateSession(c *fiber.Ctx, productId string, action string) error {
 	sess, err := store.GetStore().Get(c)
 
 	if err != nil {
@@ -67,7 +67,7 @@ func ChangeQtyAndUpdateSession(c *fiber.Ctx, productId int, action string) error
 	return nil
 }
 
-func alreadyExists(productId int, returnValue *[]product.Product) *int {
+func alreadyExists(productId string, returnValue *[]product.Product) *int {
 	if len(*returnValue) == 0 {
 		return nil
 	}

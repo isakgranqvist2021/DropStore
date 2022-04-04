@@ -7,7 +7,7 @@ import (
 )
 
 type Product struct {
-	ID          int
+	ID          string
 	Amount      int
 	Description string
 	Image       image.Image
