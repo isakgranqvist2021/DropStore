@@ -1,8 +1,6 @@
 package product
 
 import (
-	"fmt"
-
 	"github.com/gofiber/fiber/v2"
 	"github.com/isakgranqvist2021/dropstore/src/services/database"
 	"github.com/isakgranqvist2021/dropstore/src/services/logger"
@@ -46,10 +44,6 @@ func ViewProducts(c *fiber.Ctx) error {
 		go logger.Log(err)
 
 		return c.Redirect("/error")
-	}
-
-	for _, v := range products {
-		fmt.Printf("%v\n\n", v)
 	}
 
 	return c.Render("pages/product/index", fiber.Map{

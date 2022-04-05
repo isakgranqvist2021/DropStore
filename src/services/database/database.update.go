@@ -2,7 +2,6 @@ package database
 
 import (
 	"context"
-	"fmt"
 
 	"go.mongodb.org/mongo-driver/bson/primitive"
 )
@@ -22,13 +21,11 @@ func (options UpdateOptions) UpdateOneByID(ID *string) error {
 		return err
 	}
 
-	result, err := coll.UpdateByID(
+	_, err := coll.UpdateByID(
 		context.TODO(),
 		objectId,
 		options.Payload,
 	)
-
-	fmt.Println(result.ModifiedCount)
 
 	return err
 }

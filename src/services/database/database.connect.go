@@ -13,7 +13,7 @@ import (
 var Client *mongo.Client = nil
 
 func Disconnect() error {
-	fmt.Println("Disconnect")
+	fmt.Println("MongoDB has disconnected")
 
 	if err := Client.Disconnect(context.TODO()); err != nil {
 		go logger.Log(err)
@@ -25,7 +25,7 @@ func Disconnect() error {
 }
 
 func Connect() error {
-	fmt.Println("Connect")
+	fmt.Println("MongoDB has connected")
 
 	client, err := mongo.Connect(context.TODO(), options.Client().ApplyURI(os.Getenv("MONGODB_URI")))
 
