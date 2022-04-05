@@ -2,7 +2,7 @@ package product
 
 import (
 	"github.com/isakgranqvist2021/dropstore/src/packages/image"
-	"github.com/isakgranqvist2021/dropstore/src/utils"
+	"github.com/isakgranqvist2021/dropstore/src/utils/stringm"
 	"github.com/stripe/stripe-go/v72"
 )
 
@@ -18,7 +18,7 @@ type Product struct {
 }
 
 func (product *Product) ConvertToStripeProduct() *stripe.CheckoutSessionLineItemParams {
-	description := utils.CutStr(product.Description)
+	description := stringm.CutStr(product.Description)
 
 	return &stripe.CheckoutSessionLineItemParams{
 		Description: &description,

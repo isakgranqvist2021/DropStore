@@ -1,0 +1,20 @@
+[
+	{
+		"symbol": "€",
+		"code": "EUR",
+		"minorUnit": 2,
+		"currency": "Euro"
+	},
+	{
+		"symbol": "$",
+		"code": "USD",
+		"minorUnit": 2,
+		"currency": "United States Dollar"
+	},
+	{
+		"symbol": "SEK",
+		"code": "SEK",
+		"minorUnit": 2,
+		"currency": "Swedish Krona"
+	}
+]
