@@ -1,6 +1,8 @@
 package cart
 
 import (
+	"fmt"
+
 	"github.com/gofiber/fiber/v2"
 	"github.com/isakgranqvist2021/dropstore/src/packages/product"
 	"github.com/isakgranqvist2021/dropstore/src/services/store"
@@ -87,11 +89,12 @@ func JoinCart(cart []CartItem) []product.Product {
 	products, err := product.GetProducts()
 
 	if err != nil {
+		fmt.Printf("err -> %v\n", err)
 		return returnValue
 	}
 
 	for _, v := range cart {
-		_product := product.FindProduct(v.ID, &products)
+		_product := product.FindProduct(v.ID, products)
 
 		existingProductId := alreadyExists(v.ID, &returnValue)
 

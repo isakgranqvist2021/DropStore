@@ -1,15 +1,15 @@
 package product
 
 import (
-	"encoding/json"
 	"errors"
-	"io/ioutil"
+
+	"github.com/isakgranqvist2021/dropstore/src/services/database"
 )
 
-func FindProduct(productId string, products *[]Product) *Product {
-	for _, v := range *products {
+func FindProduct(productId string, products []*Product) *Product {
+	for _, v := range products {
 		if v.ID == productId {
-			return &v
+			return v
 		}
 	}
 
@@ -26,7 +26,7 @@ func GetProduct(ID string) (*Product, error) {
 
 	for i := 0; i < len(products); i++ {
 		if products[i].ID == ID {
-			return &products[i], nil
+			return products[i], nil
 		}
 	}
 
@@ -34,16 +34,12 @@ func GetProduct(ID string) (*Product, error) {
 }
 
 // Find products from raw without qty
-func GetProducts() ([]Product, error) {
-	var products []Product
+func GetProducts() ([]*Product, error) {
+	var products []*Product
 
-	bytes, err := ioutil.ReadFile("./data/products.json")
+	readOptions := database.ReadOptions{Collection: "products"}
 
-	if err != nil {
-		return nil, err
-	}
-
-	if err := json.Unmarshal(bytes, &products); err != nil {
+	if err := readOptions.ReadMany(&products); err != nil {
 		return nil, err
 	}
 
