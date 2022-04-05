@@ -56,7 +56,7 @@ const appendAlert = (text, severity) => {
 	alertContainer.appendChild(alertElement);
 };
 
-const addToCart = async (productId) => {
+const addToCart = async (productId, productName) => {
 	const addToCartButton = document.getElementById('add-to-cart');
 
 	addToCartButton.setAttribute('disabled', true);
@@ -79,9 +79,19 @@ const addToCart = async (productId) => {
 		).json();
 
 		appendAlert(res.message, res.success ? 'success' : 'danger');
+
+		if (res.success) {
+			addToCartButton.removeAttribute('disabled');
+			UIkit.modal(document.getElementById('next-step-modal')).show();
+			document.querySelector('modal-product-name').textContent = productName;
+		}
 	} catch (err) {
 		return;
 	}
 
 	addToCartButton.removeAttribute('disabled');
+};
+
+const closeModal = () => {
+	UIkit.modal(document.getElementById('next-step-modal')).hide();
 };

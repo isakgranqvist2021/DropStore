@@ -3,6 +3,7 @@ package order
 import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/isakgranqvist2021/dropstore/src/config"
+	"github.com/isakgranqvist2021/dropstore/src/packages/alert"
 	"github.com/isakgranqvist2021/dropstore/src/packages/cart"
 	"github.com/isakgranqvist2021/dropstore/src/packages/product"
 	"github.com/isakgranqvist2021/dropstore/src/services/logger"
@@ -10,22 +11,6 @@ import (
 	"github.com/stripe/stripe-go/v72"
 	"github.com/stripe/stripe-go/v72/checkout/session"
 )
-
-func GetOrderIDAndCast(c *fiber.Ctx) (*string, error) {
-	sess, err := store.GetStore().Get(c)
-
-	if err != nil {
-		return nil, err
-	}
-
-	orderId, ok := sess.Get("ORDER_ID").(string)
-
-	if !ok {
-		return nil, err
-	}
-
-	return &orderId, nil
-}
 
 func Cancel(c *fiber.Ctx) error {
 	orderId, err := GetOrderIDAndCast(c)
@@ -36,7 +21,9 @@ func Cancel(c *fiber.Ctx) error {
 		return c.Redirect("/error")
 	}
 
-	if err := UpdateOrderStatus(orderId, "canceled"); err != nil {
+	order := Order{ID: *orderId, Status: "completed"}
+
+	if err := order.UpdateStatus(); err != nil {
 		go logger.Log(err)
 
 		return c.Redirect("/error")
@@ -48,13 +35,15 @@ func Cancel(c *fiber.Ctx) error {
 func Success(c *fiber.Ctx) error {
 	orderId, err := GetOrderIDAndCast(c)
 
+	order := Order{ID: *orderId, Status: "completed"}
+
 	if err != nil {
 		go logger.Log(err)
 
 		return c.Redirect("/error")
 	}
 
-	if err := UpdateOrderStatus(orderId, "completed"); err != nil {
+	if err := order.UpdateStatus(); err != nil {
 		go logger.Log(err)
 
 		return c.Redirect("/error")
@@ -80,6 +69,13 @@ func Pay(c *fiber.Ctx) error {
 		return c.Redirect("/error")
 	}
 
+	if err := body.Validate(); err != nil {
+		alert := alert.Alert{Message: err.Error(), Severity: "error"}
+		alert.SetAlert(c)
+
+		return c.Redirect("/cart")
+	}
+
 	body.Products = cart.JoinCart(sess.Get("CART_INVENTORY").([]cart.CartItem))
 
 	params := &stripe.CheckoutSessionParams{
@@ -89,7 +85,7 @@ func Pay(c *fiber.Ctx) error {
 		CancelURL:  stripe.String(config.GetConfig().GetDomain() + "/order/cancel"),
 	}
 
-	insertedID, err := CreateOrder(body)
+	insertedID, err := body.CreateOrder()
 
 	if err != nil {
 		go logger.Log(err)

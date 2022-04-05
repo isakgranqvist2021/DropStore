@@ -5,12 +5,13 @@ import (
 )
 
 type Order struct {
-	ID         int
+	ID         string
 	Status     string
 	Products   []product.Product
 	FirstName  string `form:"firstName"`
 	LastName   string `form:"lastName"`
 	Email      string `form:"email"`
+	Country    string `form:"country"`
 	Phone      string `form:"phone"`
 	Address    string `form:"address"`
 	PostalCode string `form:"postalCode"`

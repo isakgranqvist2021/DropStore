@@ -38,6 +38,40 @@
 			<section class="uk-margin">
 				<label
 					class="uk-text-uppercase uk-text-meta uk-margin-small-bottom uk-display-block"
+					for="country"
+					>Country</label
+				>
+				<select class="uk-select" id="country" name="country">
+					<option value="Albania">Albania</option>
+					<option value="Austria">Austria</option>
+					<option value="Belgium">Belgium</option>
+					<option value="Cyprus">Cyprus</option>
+					<option value="Denmark">Denmark</option>
+					<option value="Estonia">Estonia</option>
+					<option value="Faroe Islands">Faroe Islands</option>
+					<option value="Finland">Finland</option>
+					<option value="France">France</option>
+					<option value="Germany">Germany</option>
+					<option value="Greenland">Greenland</option>
+					<option value="Iceland">Iceland</option>
+					<option value="Ireland">Ireland</option>
+					<option value="Italy">Italy</option>
+					<option value="Luxembourg">Luxembourg</option>
+					<option value="Malta">Malta</option>
+					<option value="Netherlands">Netherlands</option>
+					<option value="Norway">Norway</option>
+					<option value="Poland">Poland</option>
+					<option value="Spain">Spain</option>
+					<option value="Sweden" selected>Sweden</option>
+					<option value="Switzerland">Switzerland</option>
+					<option value="Turkey">Turkey</option>
+					<option value="UK">United Kingdom</option>
+					<option value="USA">United States of America</option>
+				</select>
+			</section>
+			<section class="uk-margin">
+				<label
+					class="uk-text-uppercase uk-text-meta uk-margin-small-bottom uk-display-block"
 					for="address"
 					>Address</label
 				>
@@ -52,6 +86,14 @@
 				<input type="text" class="uk-input" name="postalCode" />
 			</section>
 			<button class="uk-button uk-button-primary">Continue to payment</button>
+
+			{{ if .Alert }}
+			<div class="uk-alert-danger" uk-alert>
+				<a class="uk-alert-close" uk-close></a>
+				<p>{{ .Alert.Message }}</p>
+			</div>
+
+			{{ end }}
 		</form>
 		<div class="uk-width-1-1">
 			<ul class="uk-list uk-list-divider">

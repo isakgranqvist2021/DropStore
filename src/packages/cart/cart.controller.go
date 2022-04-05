@@ -2,6 +2,7 @@ package cart
 
 import (
 	"github.com/gofiber/fiber/v2"
+	"github.com/isakgranqvist2021/dropstore/src/packages/alert"
 	"github.com/isakgranqvist2021/dropstore/src/services/logger"
 	"github.com/isakgranqvist2021/dropstore/src/services/store"
 )
@@ -71,5 +72,6 @@ func Cart(c *fiber.Ctx) error {
 
 	return c.Render("pages/cart/index", fiber.Map{
 		"Products": products,
+		"Alert":    alert.GetAlert(c),
 	})
 }
