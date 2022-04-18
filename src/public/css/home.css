@@ -1,0 +1,28 @@
+.section {
+	scroll-snap-align: start;
+}
+
+.section:nth-child(even) {
+	height: 65vh;
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+	background-image: url('/public/img/visuals/a.jpg');
+}
+
+.section:nth-child(odd) {
+	height: 35vh;
+	color: #fff;
+	background-color: #333;
+}
+
+.section h2,
+.section p {
+	color: #fff;
+}
+
+main {
+	scroll-snap-type: mandatory;
+	scroll-snap-points-y: repeat(300px);
+	scroll-snap-type: y mandatory;
+}
