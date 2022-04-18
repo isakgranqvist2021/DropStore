@@ -2,7 +2,6 @@ package app
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/isakgranqvist2021/dropstore/src/config"
@@ -16,7 +15,7 @@ func Run() error {
 	godotenv.Load(".env")
 
 	if err := database.Connect(); err != nil {
-		log.Fatal(err)
+		return err
 	}
 
 	defer database.Disconnect()

@@ -21,7 +21,7 @@ func (options UpdateOptions) UpdateOneByID(ID *string) error {
 		return err
 	}
 
-	_, err := coll.UpdateByID(
+	_, err = coll.UpdateByID(
 		context.TODO(),
 		objectId,
 		options.Payload,

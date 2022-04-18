@@ -1,22 +1,8 @@
-<div class="uk-container-large uk-padding-large uk-margin-auto">
-	<div class="grid">
-		{{ range .Products }}
-		<a class="uk-text-decoration-none" href="/{{ Replace .Name }}/{{ .ID }}">
-			<div class="uk-card uk-card-default">
-				<div class="uk-card-media-top">
-					<img
-						style="height: 300px; object-fit: cover; width: 100%"
-						alt="{{ .Name }} product image"
-						src="/public/img/{{ .Image.Src }}"
-					/>
-				</div>
-				<div class="uk-card-body">
-					<h3 class="uk-card-title">{{ .Name }}</h3>
-					<p>{{ CutStr .Description }}</p>
-					<p>{{ .Amount }} SEK</p>
-				</div>
-			</div>
-		</a>
-		{{ end }}
-	</div>
+<div class="uk-flex">
+	<img src="/public/img/a.webp" alt="" />
+	<img src="/public/img/b.webp" alt="" />
+</div>
+<div class="uk-flex">
+	<img src="/public/img/c.webp" alt="" />
+	<img src="/public/img/d.webp" alt="" />
 </div>
