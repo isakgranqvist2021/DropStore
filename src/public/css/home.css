@@ -1,5 +1,12 @@
-.section {
-	scroll-snap-align: start;
+.photo-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+}
+
+.photo-grid img {
+	width: 250px;
+	height: 250px;
+	background-color: rgb(211, 211, 211);
 }
 
 .section:nth-child(even) {
@@ -11,18 +18,5 @@
 }
 
 .section:nth-child(odd) {
-	height: 35vh;
-	color: #fff;
-	background-color: #333;
-}
-
-.section h2,
-.section p {
-	color: #fff;
-}
-
-main {
-	scroll-snap-type: mandatory;
-	scroll-snap-points-y: repeat(300px);
-	scroll-snap-type: y mandatory;
+	background-color: #fff;
 }
