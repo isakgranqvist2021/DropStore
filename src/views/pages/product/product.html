@@ -1,11 +1,11 @@
 <div class="uk-container-large uk-padding-large uk-margin-auto">
 	<div class="two-col-layout">
+		{{ range .Product.Images }}
 		<div>
-			<img
-				src="/public/img/{{ .Product.Image.Src }}"
-				alt="{{ .Product.Name }}"
-			/>
+			<img src="/public/img/{{ .Src }}" alt="{{ .Alt }}" />
 		</div>
+		{{ end }}
+
 		<div class="uk-width-1-1">
 			<h1>{{ .Product.Name }}</h1>
 

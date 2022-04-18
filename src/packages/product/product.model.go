@@ -7,18 +7,24 @@ import (
 )
 
 type Product struct {
-	ID          string      `bson:"_id"`
-	Amount      int         `bson:"amount"`
-	Description string      `bson:"description"`
-	Image       image.Image `bson:"image"`
-	Features    []string    `bson:"features"`
-	Name        string      `bson:"name"`
-	Stock       int         `bson:"stock"`
-	Quantity    int         `bson:"quantity"`
+	ID          string        `bson:"_id"`
+	Amount      int           `bson:"amount"`
+	Description string        `bson:"description"`
+	Images      []image.Image `bson:"images"`
+	Features    []string      `bson:"features"`
+	Name        string        `bson:"name"`
+	Stock       int           `bson:"stock"`
+	Quantity    int           `bson:"quantity"`
 }
 
 func (product *Product) ConvertToStripeProduct() *stripe.CheckoutSessionLineItemParams {
 	description := stringm.CutStr(product.Description)
+
+	images := []*string{}
+
+	for _, v := range product.Images {
+		images = append(images, &v.Src)
+	}
 
 	return &stripe.CheckoutSessionLineItemParams{
 		Description: &description,
@@ -26,7 +32,7 @@ func (product *Product) ConvertToStripeProduct() *stripe.CheckoutSessionLineItem
 		Currency:    stripe.String("SEK"),
 		Quantity:    stripe.Int64(int64(product.Quantity)),
 		Amount:      stripe.Int64(int64(product.Amount * 100)),
-		Images:      []*string{stripe.String(product.Image.Src)},
+		Images:      images,
 	}
 }
 

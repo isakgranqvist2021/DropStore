@@ -102,7 +102,7 @@ func JoinCart(cart []CartItem) []product.Product {
 				ID:          _product.ID,
 				Amount:      _product.Amount,
 				Description: _product.Description,
-				Image:       _product.Image,
+				Images:      _product.Images,
 				Features:    _product.Features,
 				Name:        _product.Name,
 				Stock:       _product.Stock,

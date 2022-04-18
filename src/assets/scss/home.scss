@@ -1,0 +1,32 @@
+.column {
+	gap: 3rem;
+	display: flex;
+	padding: 2rem 0;
+	flex-direction: column;
+
+	.section {
+		display: flex;
+		margin: 0 auto;
+
+		&:not(:last-of-type) {
+			border-bottom: 1px solid rgb(238, 238, 238);
+		}
+
+		&:nth-child(even) {
+			flex-direction: row-reverse;
+		}
+
+		.photo-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+
+			img {
+				background-color: rgb(211, 211, 211);
+			}
+		}
+
+		.about-product {
+			padding: 2rem;
+		}
+	}
+}

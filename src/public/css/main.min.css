@@ -1,0 +1,2 @@
+.grid{gap:2rem;display:-ms-grid;display:grid;-ms-grid-columns:(minmax(300px, 1fr))[auto-fit];grid-template-columns:repeat(auto-fit, minmax(300px, 1fr))}.two-col-layout{display:-ms-grid;display:grid;-ms-grid-columns:1fr 1fr;grid-template-columns:1fr 1fr;gap:4rem}img{width:100%}@media (max-width: 1200px){.two-col-layout{-ms-grid-columns:1fr;grid-template-columns:1fr}}
+/*# sourceMappingURL=main.min.css.map */

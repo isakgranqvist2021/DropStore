@@ -9,7 +9,7 @@ func (product *Product) InsertProduct() error {
 		"description": product.Description,
 		"features":    product.Features,
 		"stock":       product.Stock,
-		"image":       product.Image,
+		"images":      product.Images,
 	}
 
 	insertOptions := database.CreateOptions{

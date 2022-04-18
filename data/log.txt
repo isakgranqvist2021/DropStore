@@ -9,3 +9,6 @@ Mon, 18 Apr 2022 10:56:05 CEST Cast sess.Get(ALERT) -> *Alert failed
 Mon, 18 Apr 2022 11:08:23 CEST Cast sess.Get(ALERT) -> *Alert failed
 Mon, 18 Apr 2022 17:44:16 CEST Cast sess.Get(ALERT) -> *Alert failed
 Mon, 18 Apr 2022 18:02:35 CEST Cast sess.Get(ALERT) -> *Alert failed
+Mon, 18 Apr 2022 22:46:05 CEST the provided hex string is not a valid ObjectID
+Mon, 18 Apr 2022 22:51:33 CEST document is nil
+Mon, 18 Apr 2022 23:06:52 CEST error decoding key image: cannot decode document into []image.Image
