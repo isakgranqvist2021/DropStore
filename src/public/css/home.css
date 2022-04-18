@@ -4,19 +4,26 @@
 }
 
 .photo-grid img {
-	width: 250px;
-	height: 250px;
 	background-color: rgb(211, 211, 211);
 }
 
-.section:nth-child(even) {
-	height: 65vh;
-	background-size: cover;
-	background-position: center;
-	background-attachment: fixed;
-	background-image: url('/public/img/visuals/a.jpg');
+.column {
+	gap: 3rem;
+	display: flex;
+	padding: 2rem 0;
+	flex-direction: column;
 }
 
-.section:nth-child(odd) {
-	background-color: #fff;
+.section .uk-container-large {
+	display: flex;
+	margin: 0 auto;
+	grid-template-columns: 1fr 1fr;
+}
+
+hr {
+	border-top-color: rgb(238, 238, 238);
+}
+
+.about-product {
+	padding: 2rem;
 }
